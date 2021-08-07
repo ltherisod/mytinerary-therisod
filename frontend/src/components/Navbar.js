@@ -6,14 +6,18 @@ const Navbar = () =>{
    
         <nav className="navBar">
             <div className="navbarContainer">
-                <NavLink to= "/" className="logoIcon"></NavLink>
-                <NavLink to= "/" >Home</NavLink>
-                <NavLink to = "/cities">Cities</NavLink>
-                <div>
-                    <NavLink to = "/">Sign Up</NavLink>
-                    <NavLink to = "/">Create Account</NavLink>
+                <NavLink to= "/" className="logoIcon">
+                    <img src="./assets/logo-unscreen.gif"/>
+                </NavLink>
+                <div className="account">
+                    <NavLink to= "/" >Home</NavLink>
+                    <NavLink to = "/cities">Cities</NavLink>
+                    <NavLink className="user" to = "/">
+                    <img src= "./assets/person-circle.svg"/>
+                    </NavLink>
                 </div>
-               
+                
+              
             </div>
         </nav>
        

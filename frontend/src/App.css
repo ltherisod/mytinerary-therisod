@@ -5,18 +5,32 @@ html *{
 }
 
 div.navbarContainer{
+    background-color: whitesmoke;
     display: flex;
     justify-content: space-between;
+    height: 10vh;
 }
 
-div.Account {
-    display: flex;
+div.account {
+    width: 20%;
+    display:flex;
     justify-content: space-around;
 }
-div.navbarContainer p{
+.user img{
+   width: 2.5rem;
+}
+
+.logoIcon img{
+    width: 11rem;
+    position: absolute;
+    top: -30px;
+}
+
+div.navbarContainer a {
     color: black;
     font-weight: bold;
-    padding:  1rem 5rem;
+    text-decoration: none;
+    align-self: center;
 }
 
 .mainVideo {
@@ -62,6 +76,24 @@ div.heroButtons button:hover {
     height: 100vh;
 }
 
-.carousel h5 {
-    color:black;
+.cajafotito{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding: 5rem;
+
 }
+
+.fotito{
+width:40vw;
+height: 50vh;
+background-position: center;
+background-size: cover;
+margin: 1rem;
+border-radius: 10px;
+box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+
+
+
+}
+

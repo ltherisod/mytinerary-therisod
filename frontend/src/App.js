@@ -3,7 +3,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "./App.css"
 import Home from "./pages/Home"
 import Cities from "./pages/Cities"
-// import Navbar from "./components/Navbar"
 import {BrowserRouter as Router, Switch,Route, BrowserRouter} from "react-router-dom"
 
 const App = () => {

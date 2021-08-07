@@ -1,0 +1,1 @@
+// { <div style={{backgroundImage: `url('${data.src}')`}}></div>}
