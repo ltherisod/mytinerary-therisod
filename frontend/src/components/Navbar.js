@@ -8,6 +8,7 @@ const Navbar = () =>{
             <div className="navbarContainer">
                 <NavLink to= "/" className="logoIcon">
                     <img src="./assets/logo-unscreen.gif"/>
+                    <p>Mytinerary</p>
                 </NavLink>
                 <div className="account">
                     <NavLink to= "/" >Home</NavLink>

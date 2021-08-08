@@ -1,7 +1,6 @@
 import React from "react"
 import Header from "../components/Header"
 import Navbar from "../components/Navbar"
-// import {BrowserRouter as Router, Switch,Route} from "react-router-dom"
 import HeroSection from "../components/HeroSection"
 import CitiesCarousel from "../components/CitiesCarousel"
 import Main from "../components/Main"

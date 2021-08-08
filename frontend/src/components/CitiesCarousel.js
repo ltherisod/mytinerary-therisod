@@ -9,64 +9,64 @@ import {
 const items = [
 [ {
   src: './assets/Cities/OsakaJapan.jpg',
-  altText: 'Slide 1',
-  caption: 'Slide 1',
+  id: 'japan',
+  name: 'Osaka Japan',
 },
 {
   src: './assets/Cities/CapeTown.jpg',
-  altText: 'Slide 2',
-  caption: 'Slide 2'
+  id: 'southAfrica',
+  name: 'Cape Town South Africa'
 },
 {
   src: './assets/Cities/DarwinAustralia.jpg',
-  altText: 'Slide 3',
-  caption: 'Slide 3'
+  id: 'australia',
+  name: 'Darwin Australia'
 },
 {
   src: './assets/Cities/HuayinWeinánChina.jpg',
-  altText: 'Slide 4',
-  caption: 'Slide 4',
+  id: 'china',
+  name: 'Huayin China',
 },
 ],
  [ {
   src: './assets/Cities/AucklandNewZeland.jpg',
-  altText: 'Slide 1',
-  caption: 'Slide 1',
+  id: 'newzeland',
+  name: 'Auckland New Zeland',
 },
 {
   src: './assets/Cities/MunichGermany.jpg',
-  altText: 'Slide 2',
-  caption: 'Slide 2'
+  id: 'germany',
+  name: 'Munich Germany'
 },
 {
   src: './assets/Cities/PhilippinesCoron.jpg',
-  altText: 'Slide 3',
-  caption: 'Slide 3'
+  id: 'philippines',
+  name: 'Coron Philippines'
 },
 {
   src: './assets/Cities/ShintoJapan.jpg',
-  altText: 'Slide 4',
-  caption: 'Slide 4',
+  id: 'shinto',
+  name: 'Shinto Japan',
 },],
  [ {
   src: './assets/Cities/SukhothaiThailand.jpg',
-  altText: 'Slide 1',
-  caption: 'Slide 1',
+  id: 'thailand',
+  name: 'Sukhothain Thailand',
 },
 {
   src: './assets/Cities/TulumMexico.jpg',
-  altText: 'Slide 2',
-  caption: 'Slide 2'
+  id: 'mexico',
+  name: 'Tulum Mexico'
 },
 {
   src: './assets/Cities/VolcanThrihnukagigur.jpg',
-  altText: 'Slide 3',
-  caption: 'Slide 3'
+  id: 'island',
+  name: 'Hafnarfjordur Island'
 },
 {
   src: './assets/Cities/ChaltenArgentinajpg.jpg',
-  altText: 'Slide 4',
-  caption: 'Slide 4',
+  id: 'argentina',
+  name: 'El Chalten Argentina',
 },]
 ];
 
@@ -91,20 +91,21 @@ const CitiesCarousel = () => {
     setActiveIndex(newIndex);
   }
 
-  const slides = items.map((item) => {
+  const slides = items.map((item, index) => {
     return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        <div className= "cajafotito">
-        {item.map((data)=>
-        <div className="fotito" style={{backgroundImage: `url('${data.src}')`}}></div>
-        // <img src={data.src}/>
-        )}
-        </div>
-      </CarouselItem>
+          <CarouselItem
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+          key={index}
+        >
+        
+          <div className= "boxPhoto">
+          {item.map((data)=>
+          <div key= {data.id} className="cityPhoto" style={{backgroundImage: `url('${data.src}')`}}><p className="photoTitle">{data.name}</p></div>
+          )}
+          </div>
+        </CarouselItem>
+      
     );
   });
 
@@ -114,7 +115,7 @@ const CitiesCarousel = () => {
       next={next}
       previous={previous}
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators items={slides} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />

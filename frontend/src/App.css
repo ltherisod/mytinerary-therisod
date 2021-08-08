@@ -5,7 +5,6 @@ html *{
 }
 
 div.navbarContainer{
-    background-color: whitesmoke;
     display: flex;
     justify-content: space-between;
     height: 10vh;
@@ -33,6 +32,14 @@ div.navbarContainer a {
     align-self: center;
 }
 
+div.navbarContainer p {
+    position: absolute;
+    left: 8rem;
+    top:.8rem;
+    font-family:'Italianno', cursive;
+    font-size: 2.3rem;
+}
+
 .mainVideo {
     object-fit: cover;
     width: 100%;
@@ -45,55 +52,128 @@ div.heroContainer {
     width: 100%;
     height: 100vh;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction:column;
     align-items: center;
 
 }
 
 div.heroContainer h1{
-    font-size: 5rem;
+    margin-top: 4rem;
+    font-family: 'Italianno', cursive;
+    font-weight: 550;
+    font-size: 10rem;
 }
-
+div.heroContainer h3{
+    font-family: 'Zilla Slab Highlight', cursive;;
+    color:whitesmoke;
+    text-align: center;
+    font-size: 2rem;
+}
 div.heroButtons button{
  padding: 1rem;
  background-color: black;
  color: white;
  font-weight: bold;
- box-shadow: none;
+ box-shadow: inset 0 0 0 0 white;
+ transition: ease-out 0.6s;
  border: 2px solid black;
  border-radius: 5px;
  cursor: pointer;
+
 }
 
 div.heroButtons button:hover {
-    background: white;
+    box-shadow: inset 300px 0 0 0 white;
     border:2px solid white;
     color: black;
 }
 
 .carousel {
+    align-self: center;
     height: 100vh;
 }
 
-.cajafotito{
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-padding: 5rem;
+.boxPhoto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
 
 }
 
-.fotito{
-width:40vw;
-height: 50vh;
-background-position: center;
-background-size: cover;
-margin: 1rem;
-border-radius: 10px;
-box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+.cityPhoto{
+    display: flex;
+    justify-content: center;
+    width:35vw;
+    height: 45vh;
+    background-position: center;
+    background-size: cover;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+}
+
+.photoTitle {
+    font-family: 'Zilla Slab Highlight', cursive;;
+    align-self: center;
+    color: whitesmoke;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.sr-only {
+    display: none;
+}
 
 
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: black;
+    width: 2rem;
+    padding: 1.5rem;
+    border-radius: 100px;
+}
+
+div.errorText {
+    height: 28vh;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+}
+
+div.errordiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.5rem;
 
 }
 
+.errorButton {
+    padding: 1rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background-color: #F190B2;
+    border: none;
+}
+
+div.errorText Link {
+    margin-top: 3rem;
+}
+
+.errorButton:hover {
+background-color: #048fda;
+color: white;
+}
+
+div.containerFooter {
+    height: 90vh;
+    background-size:cover;
+    background-position: center;
+}
