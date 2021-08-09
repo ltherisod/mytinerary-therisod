@@ -239,7 +239,7 @@ color: white;
 
 
 
-div.container-fluid {
+div.footerContainer {
     display: flex;
     justify-content:space-between;
     flex-direction: column;

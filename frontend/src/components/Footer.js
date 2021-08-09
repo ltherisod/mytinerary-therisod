@@ -2,11 +2,11 @@ import {NavLink} from "react-router-dom"
 const Footer = () => {
     return (
         <footer>
-            <div className = "container-fluid"style={{backgroundImage: `url('./assets/footerbanner.jpg')`}}>
+            <div className = "footerContainer"style={{backgroundImage: `url('./assets/footerbanner.jpg')`}}>
                 <div className="phraseNav">
                     <div className="nameContainer">
                                 <h3>Mytinerary</h3>
-                                <div className="bilboPhrase">
+                                <div className="ps-5 d-none d-lg-block bilboPhrase">
                                     <p>“It’s a dangerous business going out your door.You step onto the road, and if you don’t keep your feet, there’s no knowing where you might be swept off to.”</p>
                                     <p> — Bilbo Baggins</p>
                                 </div>

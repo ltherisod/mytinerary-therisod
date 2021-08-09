@@ -99,9 +99,9 @@ const CitiesCarousel = () => {
           key={index}
         >
         
-          <div className= "row boxPhoto">
+          <div className= "boxPhoto">
           {item.map((data)=>
-          <div key= {data.id} className="col-12 col-md-4 cityPhoto" style={{backgroundImage: `url('${data.src}')`}}><p className="photoTitle">{data.name}</p></div>
+          <div key= {data.id} className="cityPhoto" style={{backgroundImage: `url('${data.src}')`}}><p className="photoTitle">{data.name}</p></div>
           )}
           </div>
         </CarouselItem>

@@ -40,9 +40,6 @@ const NavBar = (props) => {
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem>
-                        Create new account
-                        </DropdownItem>
-                        <DropdownItem>
                         Log in
                         </DropdownItem>
                         <DropdownItem divider />
