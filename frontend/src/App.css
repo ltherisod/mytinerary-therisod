@@ -15,31 +15,49 @@ div.account {
     display:flex;
     justify-content: space-around;
 }
-.user img{
+.user{
    width: 2.5rem;
 }
 
-.logoIcon img{
-    width: 11rem;
-    position: absolute;
-    top: -30px;
+.logo{
+    width: 8rem;
+    padding-left: 1rem;
+   
 }
 
-div.navbarContainer a {
+.navheader{
+    margin-top: 1rem;
+    display: flex;
+}
+nav a {
+    align-self: center;
     color: black;
     font-weight: bold;
     text-decoration: none;
     align-self: center;
+    padding: 0 1rem;
 }
-
-div.navbarContainer p {
+.dropdown-menu{
     position: absolute;
-    left: 8rem;
-    top:.8rem;
-    font-family:'Italianno', cursive;
-    font-size: 2.3rem;
+    right: 5px;
+    top:85px;
+}
+/* nav a.active{
+color:#3fced3 ;
+} */
+
+nav a:hover{
+    color:#3ec4d6
 }
 
+.containerHeader{
+    width: 100%;
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+
+
+}
 .mainVideo {
     object-fit: cover;
     width: 100%;
@@ -62,13 +80,13 @@ div.heroContainer h1{
     margin-top: 4rem;
     font-family: 'Italianno', cursive;
     font-weight: 550;
-    font-size: 10rem;
+    font-size: 20vmin;
 }
 div.heroContainer h3{
-    font-family: 'Zilla Slab Highlight', cursive;;
+    font-family: 'Zilla Slab Highlight', cursive;
     color:whitesmoke;
     text-align: center;
-    font-size: 2rem;
+    font-size: 4vmin;
 }
 div.heroButtons button{
  padding: 1rem;
@@ -120,7 +138,7 @@ div.heroButtons button:hover {
     color: whitesmoke;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 5vmin;
 }
 
 .sr-only {
@@ -134,6 +152,53 @@ div.heroButtons button:hover {
     width: 2rem;
     padding: 1.5rem;
     border-radius: 100px;
+}
+
+.carouselTitles, .titles, .titlesTips {
+    padding: 1rem;
+    font-family:'Ubuntu', sans-serif;
+}
+
+.carouselTitles h2, .titles h2, .titlesTips h2 {
+    padding-top: 3rem;
+    font-weight: bold;
+    color:#dad8d8;
+    font-size: 3rem;
+}
+
+/* .carouselTitles h3{
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size: 2.3rem;
+     position: absolute;
+     bottom: -46rem;  
+} */
+
+/* .titles h3{
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size:2.3rem;
+    position: absolute;
+    bottom:-10rem;
+}
+
+.titlesTips h3 {
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size:2.3rem ;
+    position:absolute;
+    bottom: -104.5rem;
+} */
+
+.carouselTitles span, .titles span, .titlesTips span {
+    font-weight: normal;
+}
+
+.textDeco {
+    padding-left: rem;
+    width: 7rem;
+    height: .5rem;
+    background-color: #3fced3;
 }
 
 div.errorText {
@@ -172,8 +237,143 @@ background-color: #048fda;
 color: white;
 }
 
-div.containerFooter {
-    height: 90vh;
-    background-size:cover;
-    background-position: center;
+
+
+div.container-fluid {
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    min-height: 55vh;
+    background-size: cover;
+    background-position:center ;
+}
+
+
+ footer h3 {
+    color: white;
+    font-size: 7vmin;
+    font-family:'Italianno', cursive; 
+    text-align: center;
+}
+
+footer p, footer span, footer a {
+    color:white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+footer span {
+    padding-bottom: .5rem;
+    align-self: center;
+}
+
+footer nav {
+    padding-right: 2rem; 
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+footer a {
+    text-decoration: none;
+    padding-top: 1.5rem;
+    color: white;
+}
+
+div.socialMedia img {
+width: 2rem;
+}
+
+ div.socialMedia{
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.nameContainer {
+    width: 30%;
+}
+
+div.bilboPhrase{
+    padding: .5rem 2rem;
+    text-align: justify;
+} 
+
+div.finalContent{
+    align-self:center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+div.phraseNav {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardContainer {
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+
+} 
+ .card {
+    width: 20%;
+    min-height: 60vh;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+    display: flex;
+    justify-content: center;
+}
+.cardphoto {
+    align-self: center;
+    width:60%;
+    height:20vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center ;
+}
+
+.cardText {
+    color:rgb(100, 99, 99);
+    padding: 1rem;
+    text-align: center;
+    font-size: 3.5vmin;
+    font-weight: bold;
+}
+
+.mapContainer {
+    width: auto;
+    min-height: 90vh;
+    background-size:auto;
+    background-position:center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.cardImg{
+    width: 5rem;
+} 
+
+.citiesdiv{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.citiesdiv img{
+    padding: 1rem;
+    align-self: center;
+}
+
+.citiesdiv h3{
+    padding-top: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 5vmin;
+    text-align: center;
 }

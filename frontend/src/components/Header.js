@@ -2,8 +2,7 @@
 const Header = () => {
     return (
         <header>
-            <div className = "containerMainVideo">
-                
+            <div className = "containerHeader" style={{backgroundImage: `url('/assets/lighthouse.jpg')`}}>
             </div>
         </header>
     )

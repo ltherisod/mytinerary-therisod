@@ -110,6 +110,12 @@ const CitiesCarousel = () => {
   });
 
   return (
+    <div>
+    <div className="carouselTitles"> 
+    <h2>POPULAR MYTINERARIES</h2>
+    {/* <h3><span>Popular</span> Mytineraries</h3> */}
+    <div className="textDeco"></div>
+    </div>
     <Carousel
       activeIndex={activeIndex}
       next={next}
@@ -120,6 +126,7 @@ const CitiesCarousel = () => {
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
+    </div>
   );
 }
 

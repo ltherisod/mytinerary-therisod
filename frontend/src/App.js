@@ -1,6 +1,6 @@
+import "./App.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-import "./App.css"
 import Home from "./pages/Home"
 import Cities from "./pages/Cities"
 import Error404 from "./pages/Error404"
