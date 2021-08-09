@@ -138,7 +138,7 @@ div.heroButtons button:hover {
     color: whitesmoke;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
     font-weight: bold;
-    font-size: 5vmin;
+    font-size: 6vmin;
 }
 
 .sr-only {

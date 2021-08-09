@@ -10,63 +10,63 @@ const items = [
 [ {
   src: './assets/Cities/OsakaJapan.jpg',
   id: 'japan',
-  name: 'Osaka Japan',
+  name: 'Osaka',
 },
 {
   src: './assets/Cities/CapeTown.jpg',
   id: 'southAfrica',
-  name: 'Cape Town South Africa'
+  name: 'Cape Town'
 },
 {
   src: './assets/Cities/DarwinAustralia.jpg',
   id: 'australia',
-  name: 'Darwin Australia'
+  name: 'Darwin'
 },
 {
   src: './assets/Cities/HuayinWeinánChina.jpg',
   id: 'china',
-  name: 'Huayin China',
+  name: 'Huayin',
 },
 ],
  [ {
   src: './assets/Cities/AucklandNewZeland.jpg',
   id: 'newzeland',
-  name: 'Auckland New Zeland',
+  name: 'Auckland',
 },
 {
   src: './assets/Cities/MunichGermany.jpg',
   id: 'germany',
-  name: 'Munich Germany'
+  name: 'Munich'
 },
 {
   src: './assets/Cities/PhilippinesCoron.jpg',
   id: 'philippines',
-  name: 'Coron Philippines'
+  name: 'Coron'
 },
 {
   src: './assets/Cities/ShintoJapan.jpg',
   id: 'shinto',
-  name: 'Shinto Japan',
+  name: 'Shinto',
 },],
  [ {
   src: './assets/Cities/SukhothaiThailand.jpg',
   id: 'thailand',
-  name: 'Sukhothain Thailand',
+  name: 'Sukhothain',
 },
 {
   src: './assets/Cities/TulumMexico.jpg',
   id: 'mexico',
-  name: 'Tulum Mexico'
+  name: 'Tulum'
 },
 {
   src: './assets/Cities/VolcanThrihnukagigur.jpg',
   id: 'island',
-  name: 'Hafnarfjordur Island'
+  name: 'Hafnarfjordur'
 },
 {
   src: './assets/Cities/ChaltenArgentinajpg.jpg',
   id: 'argentina',
-  name: 'El Chalten Argentina',
+  name: 'El Chalten',
 },]
 ];
 
