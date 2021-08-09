@@ -29,14 +29,12 @@ const NavBar = (props) => {
                     <NavLink to="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink  to="/cities">Cities</NavLink>
+                    <NavLink to="/cities">Cities</NavLink>
                 </NavItem>
                 </div>
-            
                 <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                         <img className="user" src= "./assets/person-circle.svg" alt="usericon" />
-          
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem>

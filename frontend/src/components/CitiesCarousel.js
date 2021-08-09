@@ -99,9 +99,9 @@ const CitiesCarousel = () => {
           key={index}
         >
         
-          <div className= "boxPhoto">
+          <div className= "row boxPhoto">
           {item.map((data)=>
-          <div key= {data.id} className="cityPhoto" style={{backgroundImage: `url('${data.src}')`}}><p className="photoTitle">{data.name}</p></div>
+          <div key= {data.id} className="col-sm-12 col-md-4 cityPhoto" style={{backgroundImage: `url('${data.src}')`}}><p className="photoTitle">{data.name}</p></div>
           )}
           </div>
         </CarouselItem>
@@ -110,7 +110,7 @@ const CitiesCarousel = () => {
   });
 
   return (
-    <div>
+    <div className="container-fluid">
     <div className="carouselTitles"> 
     <h2>POPULAR MYTINERARIES</h2>
     {/* <h3><span>Popular</span> Mytineraries</h3> */}

@@ -109,7 +109,7 @@ div.heroButtons button:hover {
 
 .carousel {
     align-self: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .boxPhoto{
@@ -346,9 +346,9 @@ div.phraseNav {
 }
 
 .mapContainer {
-    width: auto;
+    width: 100%;
     min-height: 90vh;
-    background-size:auto;
+    background-size:contain;
     background-position:center;
     background-repeat: no-repeat;
     display: flex;
