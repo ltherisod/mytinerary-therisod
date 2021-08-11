@@ -8,9 +8,9 @@ import {
 
 const items = [
 [ {
-  src: './assets/Cities/OsakaJapan.jpg',
-  id: 'japan',
-  name: 'Osaka',
+  src: './assets/Cities/chileatacama.jpg',
+  id: 'chile',
+  name: 'Atacama',
 },
 {
   src: './assets/Cities/CapeTown.jpg',
@@ -34,9 +34,9 @@ const items = [
   name: 'Auckland',
 },
 {
-  src: './assets/Cities/MunichGermany.jpg',
+  src: './assets/Cities/BavariaGermany.jpg',
   id: 'germany',
-  name: 'Munich'
+  name: 'Bavaria'
 },
 {
   src: './assets/Cities/PhilippinesCoron.jpg',

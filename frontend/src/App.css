@@ -133,7 +133,7 @@ div.heroButtons button:hover {
 }
 
 .photoTitle {
-    font-family: 'Zilla Slab Highlight', cursive;;
+    font-family: 'Zilla Slab Highlight', cursive;
     align-self: center;
     color: whitesmoke;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
@@ -165,30 +165,6 @@ div.heroButtons button:hover {
     color:#dad8d8;
     font-size: 3rem;
 }
-
-/* .carouselTitles h3{
-    padding-left: 1rem;
-    font-weight: bold;
-    font-size: 2.3rem;
-     position: absolute;
-     bottom: -46rem;  
-} */
-
-/* .titles h3{
-    padding-left: 1rem;
-    font-weight: bold;
-    font-size:2.3rem;
-    position: absolute;
-    bottom:-10rem;
-}
-
-.titlesTips h3 {
-    padding-left: 1rem;
-    font-weight: bold;
-    font-size:2.3rem ;
-    position:absolute;
-    bottom: -104.5rem;
-} */
 
 .carouselTitles span, .titles span, .titlesTips span {
     font-weight: normal;
@@ -236,8 +212,6 @@ div.errorText Link {
 background-color: #048fda;
 color: white;
 }
-
-
 
 div.footerContainer {
     display: flex;
@@ -361,13 +335,7 @@ div.phraseNav {
 
 .citiesdiv{
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.citiesdiv img{
-    padding: 1rem;
-    align-self: center;
+
 }
 
 .citiesdiv h3{
@@ -376,4 +344,54 @@ div.phraseNav {
     font-weight: bold;
     font-size: 5vmin;
     text-align: center;
+}
+.citiesdiv{
+    
+    padding: 2rem;
+}
+
+
+.cardimg{
+    width:90%;
+    height:50vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    border-radius: 20px;
+    overflow:hidden;
+    box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+   
+   
+}
+
+.cardimg h4{
+    padding-left: 1rem;
+    font-family: 'Zilla Slab Highlight', cursive;
+    align-self: flex-end;
+    color: whitesmoke;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
+    font-size: 4vmin;
+}
+
+.citydescription {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position:relative;
+    top:17vh;
+    padding:1rem ;
+    font-size: 3vmin;
+    text-align: justify;
+    transition:all 400ms cubic-bezier(0.5,0,0,0.5) ;
+   
+}
+
+.citydescription h4 {
+    font-weight: bold;
+}
+.cardimg:hover .citydescription{
+    background-color:rgba(245, 245, 245, 0.5);
+    top:0;
 }
