@@ -9,12 +9,17 @@ const Cities = () => {
         <div>
              <NavBar/>
              <Header/>
+             <div className="inputContainer">
+                <h2>Find your new adventure!</h2>
+             <input type= "text" className="inputFilter" placeholder="Search your destination..."/>
+             </div>
+             
              {/* <div className="citiesdiv ">
                 <h3> Sorry we are still working in this section </h3>
                 <img src="/assets/info3.gif" alt="info"/>
             </div>    */}
            
-                <CardCity/>
+         <CardCity/>
             
         
             <Footer/>
