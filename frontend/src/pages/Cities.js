@@ -6,8 +6,8 @@ import Header from "../components/Header"
 import CardCity from "../components/CardCity"
 
 const Cities = () => {
-    const [citiesData, setCitiesData] = useState([])
-    const [searchResult, setSearchResult]=useState([])
+    const [citiesData, setCitiesData] = useState({allCities:[], filteredCities:[]})
+   
 
     const cityFilter = (searchedcity) =>{
         let action=  citiesData.filter((cityShown) =>
@@ -19,8 +19,7 @@ const Cities = () => {
     useEffect (() => {
         axios
         .get("http://localhost:4000/api/citiesData")
-        .then ((res) => setCitiesData(res.data.answer))
-        setSearchResult(citiesData)
+        .then ((res) => setCitiesData({})
     }, [])
 
     // useEffect(() => {
