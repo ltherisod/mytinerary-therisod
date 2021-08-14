@@ -13,7 +13,7 @@ const City = (props) =>{
  const data = props.match.params.id
     return(
         <div>
-            <img alt="" src={cityData.src}/>
+            <img alt="cityphoto" src={cityData.src}/>
         </div>
     )
 }
