@@ -13,7 +13,6 @@ const Cities = () => {
         let action=  citiesData.filter((cityShown) =>
           cityShown.name.toLowerCase().startsWith(searchedcity.trim().toLowerCase()))
           setSearchResult(action)
- 
     }
 
     useEffect (() => {

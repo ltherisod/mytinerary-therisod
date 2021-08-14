@@ -5,9 +5,8 @@ require('dotenv').config()
 require('./config/dataBase')
 const app = express()
 
-app.use(cors())
-
-app.use(express.json())
+app.use(cors()) //Middleware
+app.use(express.json()) //Middleware 
 app.use('/api', router)
 
 app.listen(4000,()=>console.log('Running on port 4000'))

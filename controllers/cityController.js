@@ -15,28 +15,44 @@ const City = require('../models/City')
 ]*/
 
 const cityController ={
-    printAllCities: (req, res) => {
+    getAllCities:  (req, res) => {
         City.find()
         .then((cities)=>res.json({answer:cities}))
-      
     },
-    addNewCity: (req, res) => {
+    addNewCity:  (req, res) => {
         const newCity = new City({
             name:req.body.name,
             country:req.body.country,
             src:req.body.src,
             description:req.body.description
         })
-        newCity
-        .save()
+        newCity.save()
         .then(()=>res.json({success:true}))
-    }
+    },
+    getCityId: (req, res) => {
+        City.findOne({_id:req.params.id})
+        .then((city) => res.json({answer:city}))
+     },
+
+     deleteCity :(req, res) =>{
+         City.findOneAndDelete({_id:req.params.id})
+         .then(() =>res.json({success:true}))
+     },
+
+     editCity:(req, res) =>{
+         City.findOneAndUpdate({_id:req.params.id}, {...req.body})
+         .then(() => res.json({success:true}))
+     }
 }
 
 module.exports= cityController
 
 
-// printCityId: (req, res) => {
-//     const city = citiesData.find((cityData) => cityData.id == req.params.id)
-//      res.json({answer:city})
-//  },
+
+
+
+// printAllCities:  (req, res) => {
+//     City.find()
+//     .then((cities)=>res.json({answer:cities}))
+  
+// },
