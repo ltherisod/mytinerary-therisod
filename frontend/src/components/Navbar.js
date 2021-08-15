@@ -20,7 +20,7 @@ const NavBar = (props) => {
 
   return (
       <Navbar color="light" light expand="md" className="d-flex justify-content-between ">
-        <NavbarBrand href="#"><img src="./assets/logo.png" alt="logo" className="logo"/></NavbarBrand>
+        <NavbarBrand href="#"><img src="/assets/logo.png" alt="logo" className="logo"/></NavbarBrand>
     <div><NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -34,7 +34,7 @@ const NavBar = (props) => {
                 </div>
                 <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                        <img className="user" src= "./assets/person-circle.svg" alt="usericon" />
+                        <img className="user" src= "/assets/person-circle.svg" alt="usericon" />
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem>

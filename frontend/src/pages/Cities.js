@@ -18,7 +18,14 @@ const Cities = () => {
     useEffect (() => {
         axios
         .get("http://localhost:4000/api/citiesData")
-        .then ((res) => setCitiesData(res.data.answer))
+        .then ((res) => {
+            if(res.data.success){
+                setCitiesData(res.data.answer)
+            }else{
+                console.log(res.data.answer)
+            }
+        })
+        .catch((error) => console.log(error))
     }, [])
 
     useEffect(() => {

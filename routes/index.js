@@ -12,4 +12,3 @@ router.route("/citiesData")
 .put(cityController.editCity)
 module.exports=router
 
-//token github

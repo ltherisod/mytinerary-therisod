@@ -50,7 +50,22 @@ nav a:hover{
     color:#3ec4d6
 }
 
-.containerHeader{
+.cityHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Zilla Slab Highlight', cursive;
+}
+
+.cityHeader h1{
+    font-size: 11vmin;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
+    color: rgb(221, 216, 216);;
+}
+
+
+
+.containerHeader, .cityHeader{
     width: 100%;
     min-height: 70vh;
     background-size: cover;
@@ -145,8 +160,6 @@ div.heroButtons button:hover {
     display: none;
 }
 
-
-
 .carousel-control-next-icon, .carousel-control-prev-icon {
     background-color: black;
     width: 2rem;
@@ -185,7 +198,7 @@ div.errorText {
     text-align: center;
 }
 
-div.errordiv {
+div.errordiv, .comingSoon {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -195,7 +208,7 @@ div.errordiv {
 
 }
 
-.errorButton {
+.errorButton, .back {
     padding: 1rem 1rem;
     font-weight: bold;
     font-size: 1.2rem;
@@ -206,6 +219,19 @@ div.errordiv {
 
 div.errorText Link {
     margin-top: 3rem;
+}
+
+.back{
+    padding: 1rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background-color: #ff6666;
+    border: none;
+}
+
+.back:hover{
+    color:whitesmoke;
 }
 
 .errorButton:hover {
@@ -411,3 +437,8 @@ div.phraseNav {
     align-items: center;
 
 }
+
+.comingSoon h3 {
+    font-size: 8vmin;
+}
+

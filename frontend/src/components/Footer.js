@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom"
 const Footer = () => {
     return (
         <footer>
-            <div className = "footerContainer"style={{backgroundImage: `url('./assets/footerbanner.jpg')`}}>
+            <div className = "footerContainer"style={{backgroundImage: `url('/assets/footerbanner.jpg')`}}>
                 <div className="phraseNav">
                     <div className="nameContainer">
                                 <h3>Mytinerary</h3>
@@ -21,9 +21,9 @@ const Footer = () => {
                         
                 <div className="finalContent">
                     <div className = "socialMedia">
-                        <img src="./assets/icons8-facebook-nuevo-96.png" alt="facebook"/>
-                        <img src="./assets/icons8-instagram-96.png" alt="instagram"/>
-                        <img src="./assets/icons8-twitter-cuadrado-96.png" alt="twitter"/>  
+                        <img src="/assets/icons8-facebook-nuevo-96.png" alt="facebook"/>
+                        <img src="/assets/icons8-instagram-96.png" alt="instagram"/>
+                        <img src="/assets/icons8-twitter-cuadrado-96.png" alt="twitter"/>  
                     </div>
                     <span> Copyright &copy; Laura Therisod | Mytinerary | MindHub | 2021 </span>
                     </div>

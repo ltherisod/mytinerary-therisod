@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 const CardCity = (props) => {
     const{src, _id, name, description}=props.city
     return(
-            <Link to={`/city/${_id}`}>
+            <Link className="cardLink text-decoration-none text-dark" to={`/city/${_id}`}>
                 <div className= "col-12 col-md-6 my-3 cardBody">
                         <div  className ="cardimg" style={{backgroundImage:`url('${src}')`}}>
                             <div className=" citydescription">
