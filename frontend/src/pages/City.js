@@ -24,7 +24,7 @@ const City = (props) =>{
     return(
         <>
             <NavBar/>
-            <header className="cityHeader" style={{backgroundImage:`url('${cityData.src}')`}}>
+            <header className="cityHeader" style={{backgroundImage:`url('${cityData.background}')`}}>
             <h1><span> Welcome to {cityData.name} </span></h1>
             </header>
             <main>
