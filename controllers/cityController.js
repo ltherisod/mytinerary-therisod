@@ -41,12 +41,3 @@ const cityController ={
 
 module.exports= cityController
 
-
-
-
-
-// printAllCities:  (req, res) => {
-//     City.find()
-//     .then((cities)=>res.json({answer:cities}))
-  
-// },

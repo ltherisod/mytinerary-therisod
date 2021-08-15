@@ -8,6 +8,9 @@ import Footer from "../components/Footer"
 
 
 export default class Home extends React.Component {
+    componentDidMount() {
+        window.scroll(0,0)
+    }
     render (){
         return (
             <>

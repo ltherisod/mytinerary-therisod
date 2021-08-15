@@ -172,7 +172,7 @@ div.heroButtons button:hover {
     font-family:'Ubuntu', sans-serif;
 }
 
-.carouselTitles h2, .titles h2, .titlesTips h2 {
+.carouselTitles h2, .titles h2, .titlesTips h2, .inputContainer h2 {
     padding-top: 3rem;
     font-weight: bold;
     color:#dad8d8;
@@ -438,7 +438,23 @@ div.phraseNav {
 
 }
 
+
 .comingSoon h3 {
     font-size: 8vmin;
 }
 
+.oopsDiv{ 
+    color:rgb(100, 99, 99);
+    padding: 1rem;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 5vmin;
+}
+
+.oopsDiv img{
+    align-self: center;
+    width: 50%;
+}

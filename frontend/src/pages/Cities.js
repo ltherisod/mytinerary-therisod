@@ -5,10 +5,11 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import CardCity from "../components/CardCity"
 
-const Cities = () => {
+const Cities = (props) => {
     const [citiesData, setCitiesData] = useState([])
     const [searchResult, setSearchResult] = useState([])
-
+    const [search, setsearch]=useState("")
+    const [loader, setLoader] = useState (true)
     const cityFilter = (searchedcity) =>{
         let action=  citiesData.filter((cityShown) =>
           cityShown.name.toLowerCase().startsWith(searchedcity.trim().toLowerCase()))
@@ -16,39 +17,52 @@ const Cities = () => {
     }
 
     useEffect (() => {
+        window.scroll(0,0)
         axios
         .get("http://localhost:4000/api/citiesData")
         .then ((res) => {
             if(res.data.success){
                 setCitiesData(res.data.answer)
+                
             }else{
                 console.log(res.data.answer)
             }
         })
-        .catch((error) => console.log(error))
+        .catch((error) => {
+            props.history.push('/Fail')
+            console.log(error)
+        })
+
+        .finally(() => setLoader(false))
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         setSearchResult(citiesData)
     },[citiesData])
-    
-    const [search, setsearch]=useState("")
     const changeHandler = (e) =>{
         setsearch(e.target.value)
         cityFilter(e.target.value)
     }
 
+    const noResult = searchResult.length === 0 
+    ? <div className="oopsDiv"><p>Oops! No results for your search.</p><p> Try another city!</p> <img alt="oops" src="/assets/info.gif"/></div> 
+    : searchResult.map((cityData, index) =>{return(<CardCity city={cityData} key={index} />)})
+    if(loader){
+        return(
+            <img alt="loader" src="/assets/Cities/loader.gif"/> 
+)}
     return(
         <div>
              <NavBar/>
              <Header/>
              <div className="inputContainer">
-                <h2>Find your new adventure!</h2>
+                <h2>FIND YOUR NEW ADVENTURE!</h2>
                 <input type= "text" className="inputFilter" placeholder="Search your destination..." value={search} onChange= {changeHandler}/>
              </div>
             <div className="container-fluid citiesdiv">
                 <div className="row">
-                     {searchResult.map((cityData, index) =>{return(<CardCity city={cityData} key={index} />)})} 
+                     {noResult} 
                 </div>
             </div>
             <Footer/>

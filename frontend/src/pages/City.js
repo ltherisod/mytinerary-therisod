@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 const City = (props) =>{
     const [cityData, setCityData] = useState({})
     useEffect (() => {
+        window.scroll(0,0)
         axios
         .get(`http://localhost:4000/api/citiesData/${data}`)
         .then ((res) =>{
@@ -16,7 +17,10 @@ const City = (props) =>{
                 console.log(res.data.answer)
             }
         })
-        .catch((error) => console.log(error))
+        .catch((error) => {
+            props.history.push('/Fail')
+            console.log(error)
+        })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
  
