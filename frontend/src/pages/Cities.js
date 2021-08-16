@@ -10,11 +10,6 @@ const Cities = (props) => {
     const [searchResult, setSearchResult] = useState([])
     const [search, setsearch]=useState("")
     const [loader, setLoader] = useState (true)
-    const cityFilter = (searchedcity) =>{
-        let action=  citiesData.filter((cityShown) =>
-          cityShown.name.toLowerCase().startsWith(searchedcity.trim().toLowerCase()))
-          setSearchResult(action)
-    }
 
     useEffect (() => {
         window.scroll(0,0)
@@ -29,20 +24,26 @@ const Cities = (props) => {
             }
         })
         .catch((error) => {
-            props.history.push('/Fail')
+            props.history.push('/fail')
             console.log(error)
         })
 
         .finally(() => setLoader(false))
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
     useEffect(() => {
         setSearchResult(citiesData)
     },[citiesData])
+
     const changeHandler = (e) =>{
         setsearch(e.target.value)
         cityFilter(e.target.value)
+    }
+    
+    const cityFilter = (searchedcity) =>{
+        let action= citiesData.filter((cityShown) =>
+          cityShown.name.toLowerCase().startsWith(searchedcity.trim().toLowerCase()))
+          setSearchResult(action)
     }
 
     const noResult = searchResult.length === 0 
@@ -60,8 +61,8 @@ const Cities = (props) => {
                 <h2>FIND YOUR NEW ADVENTURE!</h2>
                 <input type= "text" className="inputFilter" placeholder="Search your destination..." value={search} onChange= {changeHandler}/>
              </div>
-            <div className="container-fluid citiesdiv">
-                <div className="row">
+            <div className="container-fluid d-flex justify-content-center align-items-center citiesdiv">
+                <div className="row d-flex align-self-center">
                      {noResult} 
                 </div>
             </div>

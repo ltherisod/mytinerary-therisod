@@ -23,7 +23,7 @@ const cityController ={
     getCityId: (req, res) => {
         City.findOne({_id:req.params.id})
         .then((city) => res.json({success:true, answer:city}))
-        .catch((error) => res.json({success:false, answer:error}))
+        .catch((error) => res.json({success:false, answer:error.message}))
      },
 
      deleteCity :(req, res) =>{

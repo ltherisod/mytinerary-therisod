@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 
 const City = (props) =>{
     const [cityData, setCityData] = useState({})
+    const [loader, setLoader] = useState (true)
     useEffect (() => {
         window.scroll(0,0)
         axios
@@ -14,17 +15,22 @@ const City = (props) =>{
             if(res.data.success){
                 setCityData(res.data.answer)
             }else{
-                console.log(res.data.answer)
+                props.history.push('/cities')
             }
         })
         .catch((error) => {
-            props.history.push('/Fail')
+            props.history.push('/fail')
             console.log(error)
         })
+        .finally(() => setLoader(false))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
  
  const data = props.match.params.id
+ if(loader){
+    return(
+        <img alt="loader" src="/assets/Cities/loader.gif"/> 
+)}
     return(
         <>
             <NavBar/>
