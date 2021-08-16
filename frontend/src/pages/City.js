@@ -29,7 +29,7 @@ const City = (props) =>{
  const data = props.match.params.id
  if(loader){
     return(
-        <img alt="loader" src="/assets/Cities/loader.gif"/> 
+        <img alt="loader" src="/assets/Cities/backpack.gif"/> 
 )}
     return(
         <>

@@ -458,3 +458,11 @@ div.phraseNav {
     align-self: center;
     width: 50%;
 }
+@media (max-width:1230px){
+    .citydescription {
+      position: initial;
+    }
+    .citydescription p {
+        display:none;
+    }  
+}

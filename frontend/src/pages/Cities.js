@@ -18,7 +18,6 @@ const Cities = (props) => {
         .then ((res) => {
             if(res.data.success){
                 setCitiesData(res.data.answer)
-                
             }else{
                 console.log(res.data.answer)
             }
@@ -31,6 +30,7 @@ const Cities = (props) => {
         .finally(() => setLoader(false))
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
     useEffect(() => {
         setSearchResult(citiesData)
     },[citiesData])
@@ -51,7 +51,7 @@ const Cities = (props) => {
     : searchResult.map((cityData, index) =>{return(<CardCity city={cityData} key={index} />)})
     if(loader){
         return(
-            <img alt="loader" src="/assets/Cities/loader.gif"/> 
+            <img alt="loader" src="/assets/backpack.gif"/> 
 )}
     return(
         <div>

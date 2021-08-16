@@ -18,7 +18,7 @@ const cityController ={
         })
         newCity.save()
         .then(()=>res.json({success:true}))
-        .catch((error) => res.json({success:false, answer:error}))
+        .catch((error) => res.json({success:false, answer:error.message}))
     },
     getCityId: (req, res) => {
         City.findOne({_id:req.params.id})
@@ -29,13 +29,13 @@ const cityController ={
      deleteCity :(req, res) =>{
          City.findOneAndDelete({_id:req.params.id})
          .then(() =>res.json({success:true}))
-         .catch((error) => res.json({success:false, answer:error}))
+         .catch((error) => res.json({success:false, answer:error.message}))
      },
 
      editCity:(req, res) =>{
          City.findOneAndUpdate({_id:req.params.id}, {...req.body})
          .then(() => res.json({success:true}))
-         .catch((error) => res.json({success:false, answer:error}))
+         .catch((error) => res.json({success:false, answer:error.message}))
      }
 }
 
