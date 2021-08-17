@@ -19,6 +19,7 @@ const Cities = (props) => {
             if(res.data.success){
                 setCitiesData(res.data.answer)
             }else{
+                props.history.push('/fail')
                 console.log(res.data.answer)
             }
         })
@@ -51,7 +52,10 @@ const Cities = (props) => {
     : searchResult.map((cityData, index) =>{return(<CardCity city={cityData} key={index} />)})
     if(loader){
         return(
-            <img alt="loader" src="/assets/backpack.gif"/> 
+            <div className="loaderdiv d-flex justify-content-center align-items-center">
+                <img alt="loader"  className="loaderGif" src="/assets/sky-2-unscreen.gif"/> 
+            </div>
+            
 )}
     return(
         <div>

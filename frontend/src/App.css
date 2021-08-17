@@ -239,6 +239,20 @@ background-color: #048fda;
 color: white;
 }
 
+.errorButton2{
+    padding: 1rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background-color: #66cc99;
+    border: none;
+    color:black;
+}
+
+.errorButton2:hover{
+    color:white;
+}
+
 div.footerContainer {
     display: flex;
     justify-content:space-between;
@@ -453,7 +467,13 @@ div.phraseNav {
     font-weight: bold;
     font-size: 5vmin;
 }
-
+.loaderdiv{
+    width: 100%;
+    height: 100vh;
+}
+.loaderGif{
+    align-self: center;
+}
 .oopsDiv img{
     align-self: center;
     width: 50%;
@@ -466,3 +486,4 @@ div.phraseNav {
         display:none;
     }  
 }
+

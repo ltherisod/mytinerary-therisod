@@ -10,9 +10,9 @@ const Fail = () => {
             <div className="errorText">
                 <h1>Oops!</h1>
                 <h3>Something went wrong</h3>
-                <p>Come back Home!</p>
+                <h3>Come back Home!</h3>
                 <Link  to = "/">
-                    <button className="errorButton">Go back</button>
+                    <button className="errorButton2">Go back</button>
                 </Link>
             </div>
         </div>

@@ -15,7 +15,7 @@ const City = (props) =>{
             if(res.data.success){
                 setCityData(res.data.answer)
             }else{
-                props.history.push('/cities')
+                props.history.push('/fail')
             }
         })
         .catch((error) => {
@@ -29,7 +29,9 @@ const City = (props) =>{
  const data = props.match.params.id
  if(loader){
     return(
-        <img alt="loader" src="/assets/Cities/backpack.gif"/> 
+        <div className="loaderdiv d-flex justify-content-center align-content-center">
+                <img alt="loader"  className="loaderGif" src="/assets/sky-2-unscreen.gif"/> 
+        </div>
 )}
     return(
         <>
