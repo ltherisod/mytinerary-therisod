@@ -37,14 +37,18 @@ nav a {
     align-self: center;
     padding: 0 1rem;
 }
-.dropdown-menu{
-    position: absolute;
-    right: 5px;
-    top:85px;
+
+li{
+    list-style-type:none;
 }
-/* nav a.active{
-color:#3fced3 ;
-} */
+
+.nav-link:hover, .nav-link:focus {
+    color: black;
+}
+
+.nav-link {
+    color:black !important;
+}
 
 nav a:hover{
     color:#3ec4d6

@@ -20,7 +20,23 @@ const NavBar = (props) => {
 
   return (
       <Navbar color="light" light expand="md" className="d-flex justify-content-between ">
-        <NavbarBrand href="#"><img src="/assets/logo2.png" alt="logo" className="logo"/></NavbarBrand>
+      <div className="d-flex align-content-center">
+                    <NavbarBrand href="#"><img src="/assets/logo2.png" alt="logo" className="logo"/></NavbarBrand>
+                    <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                            <img className="user pt-3" src= "/assets/person-circle.svg" alt="usericon" />
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem>
+                            Log in
+                            </DropdownItem>
+                            <DropdownItem divider/>
+                            <DropdownItem>
+                            Log out
+                            </DropdownItem>
+                        </DropdownMenu>
+                        </UncontrolledDropdown>
+      </div> 
     <div><NavbarToggler onClick={toggle}/>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -33,20 +49,6 @@ const NavBar = (props) => {
                 </NavItem>
                 </div>
                 <div className="pe-4">
-                <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                        <img className="user" src= "/assets/person-circle.svg" alt="usericon" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem>
-                        Log in
-                        </DropdownItem>
-                        <DropdownItem divider/>
-                        <DropdownItem>
-                        Log out
-                        </DropdownItem>
-                    </DropdownMenu>
-                    </UncontrolledDropdown>
                 </div>
           </Nav>
         </Collapse>
