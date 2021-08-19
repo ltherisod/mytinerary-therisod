@@ -1,5 +1,6 @@
 const express = require('express')
 const cityController = require('../controllers/cityController')
+const itineraryController = require ('../controllers/itineraryController')
 
 const router = express.Router()
 router.route("/citiesData")
@@ -12,3 +13,6 @@ router.route("/citiesData")
 .put(cityController.editCity)
 module.exports=router
 
+router.route("/itineraries")
+.get(itineraryController.getAllItineraries)
+.post(itineraryController.addNewItinerary)

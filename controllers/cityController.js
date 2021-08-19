@@ -14,7 +14,7 @@ const cityController ={
             description:req.body.description,
             map:req.body.map,
             coin:req.body.coin,
-            language:req.body.langage
+            language:req.body.language
         })
         newCity.save()
         .then(()=>res.json({success:true}))

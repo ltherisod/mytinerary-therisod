@@ -171,13 +171,22 @@ div.heroButtons button:hover {
     border-radius: 100px;
 }
 
-.carouselTitles, .titles, .titlesTips {
+.carouselTitles, .titles, .titlesTips, .underConstructionBox {
     padding: 1rem;
     font-family:'Ubuntu', sans-serif;
 }
+.itineraryTitle{
+    font-family:'Ubuntu', sans-serif;
+}
 
-.carouselTitles h2, .titles h2, .titlesTips h2, .inputContainer h2 {
+.carouselTitles h2, .titles h2, .titlesTips h2, .inputContainer h2, .underConstructionBox h4 {
     padding-top: 3rem;
+    font-weight: bold;
+    color:#dad8d8;
+    font-size: 3rem;
+}
+
+.itineraryTitle  h2{
     font-weight: bold;
     color:#dad8d8;
     font-size: 3rem;
@@ -481,6 +490,156 @@ div.phraseNav {
 .oopsDiv img{
     align-self: center;
     width: 50%;
+}
+.itinerariesBox{
+    padding: 2rem;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itineraryBody{
+    width: 90%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+    padding: 3vh 2vw;
+    margin-bottom: 5vh;
+}
+
+.itineraryHead{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.itineraryPhoto{
+    width: 22vw;
+    height: 60vh;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+.itineraryData{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.itineraryAuthor{
+    display: flex;
+    align-items: center;
+}
+
+.authorPhoto{
+    min-width: 8vw;
+    height: 16vh;
+    border-radius: 50%;
+}
+
+.authorName{
+    margin-left: 2vw;
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+.itineraryTitle {
+    display: flex;
+    align-items: center;
+}
+
+.itineraryTitle h2 {
+    font-size: 2.5em;
+    padding: 1vh 2vw;
+    margin-top: 2vh;
+}
+
+.likes{
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.likes img {
+    width: 3em;
+    cursor: pointer;
+}
+
+.likes p{
+    color:#ff6666;
+    font-weight: bold;
+}
+.itineraryDescrip{
+    font-size: 1.3em;
+}
+
+.hashtags{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.itineraryIcons{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.itinerarybutton{
+    display:flex;
+    justify-content:center;
+}
+.itinerarybutton button {
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0 0 0 0 white;
+    transition: ease-out 0.6s;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+       
+.itinerarybutton button:hover {
+    box-shadow: inset 300px 0 0 0 white;
+    border:2px solid white;
+    color: black;
+} 
+
+.itineraryTime {
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.itineraryPrice{
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+.itineraryTime img {
+    width: 2em;
+}
+
+.underConstruction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.underConstructionBox {
+padding: 1rem;
+}
+
+.underConstructionBox img {
+    padding:1rem;
 }
 @media (max-width:1230px){
     .citydescription {
