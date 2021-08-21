@@ -1,4 +1,4 @@
-import { useEffect} from "react"
+import { useEffect, useState} from "react"
 import { connect } from 'react-redux'
 import NavBar from "../components/Navbar"
 import Footer from "../components/Footer"
@@ -8,43 +8,37 @@ import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesActions"
 
 const City = (props) =>{
-
-    // const [itineraries, setItineraries] = useState([])
-    // const [loader, setLoader] = useState (true)
-   
+     const [loader, setLoader] = useState (true)
+   console.log(props.itineraries)
     useEffect (() => {
         window.scroll(0,0)
         if(!props.cities.length){
             props.history.push('/cities')
             return false
         }
-        props.getOneCity(props.match.params.id)
-        props.getItineraries()
-        
-        // axios
-        // .get(`http://localhost:4000/api/itineraries/`)
-        // .then ((res) =>{
-        //     if(res.data.success){
-        //         setItineraries(res.data.answer)
-        //     }else{
-        //         props.history.push('/fail')
-        //     }
-        // })
-        // .catch((error) => {
-        //     props.history.push('/fail')
-        //     console.log(error)
-        // })
-        // .finally(() => setLoader(false))
+        async function getItinerariesPerCity (){
+            try{
+                await   props.getItinerariesPerCity(props.match.params.id)
+                await   props.getOneCity(props.match.params.id)
+                setLoader(false)
+            }catch (error){
+                props.history.push('/fail')
+                return false
+            }
+        }
+        getItinerariesPerCity()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
- const itineraryCards = props.itineraries.map((itineraryData, index) => <Itinerary data={itineraryData} key={index} />)
+ const itineraryCards =props.itineraries.length === 0 
+    ? <div className="comingSoon"> <h3>Oh no! We don't have any itineraries yet!</h3><h3>Would you like to be the first</h3><img alt="icon" src="/assets/info3.gif"/> </div> 
+    : props.itineraries.map((itineraryData, index) => <Itinerary data={itineraryData} key={index} />)
 
-//  if(loader){
-//     return(
-//         <div className="loaderdiv d-flex justify-content-center align-content-center">
-//                 <img alt="loader"  className="loaderGif" src="/assets/sky-2-unscreen.gif"/> 
-//         </div>
-// )}
+ if(loader){
+    return(
+        <div className="loaderdiv d-flex justify-content-center align-content-center">
+                <img alt="loader"  className="loaderGif" src="/assets/sky-2-unscreen.gif"/> 
+        </div>
+)}
     return(
         <>
             <NavBar/>
@@ -60,11 +54,11 @@ const City = (props) =>{
                 <div className= "itinerariesBox">
                     {itineraryCards}
                 </div>
+               
                 <div className="comingSoon">
-                    {/* <h3>Itineraries coming soon</h3>
-                    <img alt="icon" src="/assets/info3.gif"/> */}
-                   <Link to="/cities"><button className="back">Back to Cities</button> </Link> 
+                <Link to="/cities"><button className="back">Back to Cities</button></Link> 
                 </div>
+               
             </main>
             <Footer/>
         </>
@@ -74,13 +68,13 @@ const mapStateToProps = state => {
     return{
         city: state.cities.newCity,
         cities: state.cities.allCities,
-        itineraries: state.itineraries.allItineraries
+        itineraries: state.itineraries.itinerariesPerCity
     }
 }
 
 const mapDispatchToProps = {
 getOneCity:citiesActions.getOneCity,
-getItineraries:itinerariesActions.getItineraries
+getItinerariesPerCity:itinerariesActions.getItinerariesPerCity
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(City)

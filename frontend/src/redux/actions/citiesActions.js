@@ -1,10 +1,13 @@
 import axios from "axios"
 const citiesActions = {
+    
  getCities : () => {
     return async (dispatch, getState) => {
         let response = await axios.get('http://localhost:4000/api/citiesData')
-        let data = response.data.answer
-        dispatch({type:'GET_ALL_CITIES', payload:data}) 
+        if(!response.data.success){
+            throw new Error ('Backend-Data Base problems')
+        }
+        dispatch({type:'GET_ALL_CITIES', payload:response.data.answer}) 
     }
  },
  filterCities: (e) => {

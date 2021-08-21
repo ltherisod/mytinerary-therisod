@@ -192,6 +192,12 @@ div.heroButtons button:hover {
     font-size: 3rem;
 }
 
+.comingSoon h3{
+    font-weight: bold;
+    color:#b8b8b8;
+    font-size: 3rem;
+}
+
 .carouselTitles span, .titles span, .titlesTips span {
     font-weight: normal;
 }

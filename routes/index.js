@@ -16,3 +16,12 @@ module.exports=router
 router.route("/itineraries")
 .get(itineraryController.getAllItineraries)
 .post(itineraryController.addNewItinerary)
+
+router.route("/itineraries/:id")
+.get(itineraryController.getItinerariesPerCity)
+
+
+router.route("/itinerary/:id")
+.get(itineraryController.getItineraryId)
+.delete(itineraryController.deleteItinerary)
+.put(itineraryController.editItinerary)

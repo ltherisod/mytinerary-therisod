@@ -2,14 +2,14 @@ import { useState } from "react"
 
 const Itinerary = (props) => {
 const [shown, setShown] = useState(false)
-const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time, comments } = props.data
+const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time} = props.data
     return(
         <div className="itineraryBody">
             <div className="itineraryHead">
                 <div className="itineraryPhoto" style={{backgroundImage:`url('${src}')`}} ></div>
                 <div className="itineraryData">
                     <div className="itineraryAuthor">
-                        <img className="authorPhoto" src={authorPhoto} alt="photo"/>
+                        <img className="authorPhoto" src={authorPhoto} alt="profile"/>
                         <span className="authorName">{authorName}</span>
                     </div>
                     <div className="itineraryTitle">

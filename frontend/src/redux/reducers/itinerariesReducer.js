@@ -1,9 +1,9 @@
-const itinerariesReducer = (state={allItineraries:[]}, action) => {
+const itinerariesReducer = (state={itinerariesPerCity:[]}, action) => {
     switch(action.type){
-        case "GET_ALL_ITINERARIES":
+        case "GET_ITINERARIES_PER_CITY":
             return{
                 ...state,
-                allItineraries: action.payload
+                itinerariesPerCity: action.payload
             }
       default:
           return state          
