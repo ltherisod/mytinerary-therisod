@@ -223,7 +223,7 @@ div.errorText {
     text-align: center;
 }
 
-div.errordiv, .comingSoon {
+div.errordiv {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -231,6 +231,15 @@ div.errordiv, .comingSoon {
     align-items: center;
     padding: 3.5rem;
 
+}
+
+.comingSoon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.5rem 0 ;
 }
 
 .errorButton {
@@ -483,6 +492,7 @@ div.phraseNav {
 
 
 .comingSoon h3 {
+    padding: .5rem;
     font-size: 8vmin;
 }
 
@@ -665,7 +675,7 @@ padding: 1rem;
 }
 
 .noItineraries{
-    width: 90%;
+    width: 100%;
     min-height:100vh;
     background-size:cover;
     background-position:bottom;

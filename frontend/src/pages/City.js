@@ -13,7 +13,7 @@ const City = (props) =>{
         window.scroll(0,0)
         if(!props.cities.length){
             props.history.push('/cities')
-            return false
+            return false //return anticipado para dejar de evaluar 
         }
         async function getItinerariesCity (){
             try{
@@ -30,7 +30,7 @@ const City = (props) =>{
     }, [])
  const itineraryCards =props.itineraries.length === 0 
     ? <div className="comingSoon"> <div className="noItineraries" style={{backgroundImage:`url('/assets/backNo.jpg')`}}><div><h3>Oh no! We don't have any itineraries yet!</h3></div></div></div> 
-    : props.itineraries.map((itineraryData, index) => <Itinerary data={itineraryData} key={index} />)
+    : props.itineraries.map((itineraryData, index) =><Itinerary data={itineraryData} key={index}/>)
 
  if(loader){
     return(
