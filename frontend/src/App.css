@@ -192,10 +192,16 @@ div.heroButtons button:hover {
     font-size: 3rem;
 }
 
-.comingSoon h3{
+.noItineraries div h3{
+    padding-top: .5rem;
     font-weight: bold;
-    color:#b8b8b8;
-    font-size: 3rem;
+    text-align: center;
+    color:#2ad7dd;
+    font-size: 7vmin;
+}
+
+.noItineraries div{
+    padding-top: 3rem;
 }
 
 .carouselTitles span, .titles span, .titlesTips span {
@@ -361,7 +367,7 @@ div.phraseNav {
  .card {
     width: 20%;
     min-height: 60vh;
-    border-radius: 20px;
+    border-radius: 50px;
     box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
     display: flex;
     justify-content: center;
@@ -463,7 +469,7 @@ div.phraseNav {
 
 .inputFilter {
     padding:.5rem;
-    width: 35%;
+    width: 30vw;
 }
 
 .inputContainer {
@@ -554,7 +560,7 @@ div.phraseNav {
 .authorName{
     margin-left: 2vw;
     font-weight: 700;
-    font-size: 1.3em;
+    font-size: 5vmin;
 }
 
 .itineraryTitle {
@@ -577,7 +583,7 @@ div.phraseNav {
 }
 
 .likes img {
-    width: 3em;
+    width: 2.5em;
     cursor: pointer;
 }
 
@@ -631,11 +637,16 @@ div.phraseNav {
 
 .itineraryPrice{
     display: flex;
+    justify-content: space-around;
     align-items: center;
     font-size: 2em;
 }
-.itineraryTime img {
-    width: 2em;
+.itineraryTime img, .itineraryPrice img{
+    width: 1.5em;
+}
+
+.itineraryPrice img {
+    margin-left: .2em;
 }
 
 .underConstruction{
@@ -650,6 +661,23 @@ padding: 1rem;
 
 .underConstructionBox img {
     padding:1rem;
+    max-width:50vw;
+}
+
+.noItineraries{
+    width: 90%;
+    min-height:100vh;
+    background-size:cover;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
+}
+.commentsConstruction{
+padding: 2rem;
+}
+.commentsConstruction img{
+width:70vw;
 }
 @media (max-width:1230px){
     .citydescription {
@@ -660,3 +688,54 @@ padding: 1rem;
     }  
 }
 
+@media  (max-width: 994px){
+
+    .itineraryHead{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .itineraryPhoto{
+        width: 70vw;
+        height: 50vh;
+    }
+   .itineraryAuthor{
+    margin-top: 1.5vh;
+    width: 70vw;
+    justify-content: center;
+   }
+   .itineraryTitle{
+       flex-direction: column;
+   }
+   .itineraryTitle h2{
+        text-align: center;
+        font-size: 2em;
+        width: 80vw;
+   }
+
+   .itineraryDescrip{
+        font-size: 1.3em;
+        text-align: center;
+   }
+   .hashtags{
+       align-self: center;
+       display:flex;
+       justify-content: center;
+       font-size: 15px;
+   }
+   .itineraryIcons {
+       width: 100%;
+       display: flex;
+       flex-direction: row; 
+       margin-bottom: 2vh;
+       justify-content: space-around;
+   }
+   .underConstructionBox img {
+       width: 50%;
+   }
+}
+@media  (max-width: 750px){
+    .itineraryAuthor{
+        align-self: center;
+        flex-direction: column;
+    }
+}

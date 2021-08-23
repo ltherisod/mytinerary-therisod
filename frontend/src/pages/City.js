@@ -9,14 +9,13 @@ import itinerariesActions from "../redux/actions/itinerariesActions"
 
 const City = (props) =>{
      const [loader, setLoader] = useState (true)
-   console.log(props.itineraries)
     useEffect (() => {
         window.scroll(0,0)
         if(!props.cities.length){
             props.history.push('/cities')
             return false
         }
-        async function getItinerariesPerCity (){
+        async function getItinerariesCity (){
             try{
                 await   props.getItinerariesPerCity(props.match.params.id)
                 await   props.getOneCity(props.match.params.id)
@@ -26,11 +25,11 @@ const City = (props) =>{
                 return false
             }
         }
-        getItinerariesPerCity()
+        getItinerariesCity()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
  const itineraryCards =props.itineraries.length === 0 
-    ? <div className="comingSoon"> <h3>Oh no! We don't have any itineraries yet!</h3><h3>Would you like to be the first</h3><img alt="icon" src="/assets/info3.gif"/> </div> 
+    ? <div className="comingSoon"> <div className="noItineraries" style={{backgroundImage:`url('/assets/backNo.jpg')`}}><div><h3>Oh no! We don't have any itineraries yet!</h3></div></div></div> 
     : props.itineraries.map((itineraryData, index) => <Itinerary data={itineraryData} key={index} />)
 
  if(loader){

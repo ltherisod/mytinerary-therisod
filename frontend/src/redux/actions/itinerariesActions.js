@@ -6,7 +6,7 @@ const itinerariesActions = {
             if(!res.data.success){
                 throw new Error ('Backend-Data Base problems')
             }
-            dispatch ({ type:'GET_ITINERARIES_PER_CITY', payload:res.data.answer})
+            dispatch ({ type:'GET_ITINERARIES_PER_CITY', payload:res.data.response})
         }
     }
 }

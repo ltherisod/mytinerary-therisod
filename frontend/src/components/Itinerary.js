@@ -9,7 +9,7 @@ const {authorName, authorPhoto, src, hashtags, title, price, likes, description,
                 <div className="itineraryPhoto" style={{backgroundImage:`url('${src}')`}} ></div>
                 <div className="itineraryData">
                     <div className="itineraryAuthor">
-                        <img className="authorPhoto" src={authorPhoto} alt="profile"/>
+                        <img className="authorPhoto" src={authorPhoto} alt="authorPhoto"/>
                         <span className="authorName">{authorName}</span>
                     </div>
                     <div className="itineraryTitle">
@@ -20,20 +20,22 @@ const {authorName, authorPhoto, src, hashtags, title, price, likes, description,
                         </div>
                     </div>
                     <p className="itineraryDescrip">{description}</p>
-                    <span className="hashtags">{hashtags.map((hashtag, index) =>{return (<p key={index}>#{hashtag}</p>)} )}</span>
+                    <span className="hashtags">{hashtags.map((hashtag, index) =><p key={index}>#{hashtag}</p>)}</span>
                     <div className="itineraryIcons">
                         <span className="itineraryTime"><img src="/assets/sandclock-6090.svg" alt="clock icon"/>{time} hours</span>
-                        <span className="itineraryPrice">{'💵'.repeat(parseInt(price))}</span>
+                        <span className="itineraryPrice">{[...Array(price)].map((cash, index) => {
+                            return <img src="/assets/money-dollar-6362.svg" className="iconoBilletes" key={index} alt="money"/>
+                        })}</span>
                 </div>
             </div>           
         </div>
             
             <div className="underConstruction">
             {shown && (
-                <div className="">
+                <div className="commentsConstruction">
                      <h4>UNDER CONSTRUCTION</h4>
                 <div className="textDeco"></div>
-                    <img src="/assets/backpack.gif" alt="bagpack"/>
+                    <img alt="icon" src="/assets/info3.gif"/>
                 </div>
                 )}
             </div>

@@ -2,8 +2,8 @@ const City = require('../models/City')
 const cityController ={
     getAllCities:  (req, res) => {
         City.find()
-        .then((cities)=>res.json({success:true, answer:cities}))
-        .catch((error) =>res.json({success:false, answer:error}))
+        .then((cities)=>res.json({success:true, response:cities}))
+        .catch((error) =>res.json({success:false, response:error}))
     },
     addNewCity:  (req, res) => {
         const newCity = new City({
@@ -18,24 +18,24 @@ const cityController ={
         })
         newCity.save()
         .then(()=>res.json({success:true}))
-        .catch((error) => res.json({success:false, answer:error.message}))
+        .catch((error) => res.json({success:false, response:error.message}))
     },
     getCityId: (req, res) => {
         City.findOne({_id:req.params.id})
-        .then((city) => res.json({success:true, answer:city}))
-        .catch((error) => res.json({success:false, answer:error.message}))
+        .then((city) => res.json({success:true, response:city}))
+        .catch((error) => res.json({success:false, response:error.message}))
      },
 
      deleteCity :(req, res) =>{
          City.findOneAndDelete({_id:req.params.id})
          .then(() =>res.json({success:true}))
-         .catch((error) => res.json({success:false, answer:error.message}))
+         .catch((error) => res.json({success:false, response:error.message}))
      },
 
      editCity:(req, res) =>{
          City.findOneAndUpdate({_id:req.params.id}, {...req.body})
          .then(() => res.json({success:true}))
-         .catch((error) => res.json({success:false, answer:error.message}))
+         .catch((error) => res.json({success:false, response:error.message}))
      }
 }
 

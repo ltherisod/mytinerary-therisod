@@ -7,7 +7,7 @@ const citiesActions = {
         if(!response.data.success){
             throw new Error ('Backend-Data Base problems')
         }
-        dispatch({type:'GET_ALL_CITIES', payload:response.data.answer}) 
+        dispatch({type:'GET_ALL_CITIES', payload:response.data.response}) 
     }
  },
  filterCities: (e) => {
