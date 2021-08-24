@@ -171,7 +171,7 @@ div.heroButtons button:hover {
     border-radius: 100px;
 }
 
-.carouselTitles, .titles, .titlesTips, .underConstructionBox, .signInTittle {
+.carouselTitles, .titles, .titlesTips, .underConstructionBox, .signUpTittle, .signInTittle{
     padding: 1rem;
     font-family:'Ubuntu', sans-serif;
 }
@@ -584,7 +584,7 @@ div.phraseNav {
     padding: 1vh 2vw;
     margin-top: 2vh;
 }
-.signInTittle h2{
+.signUpTittle h2{
     font-weight: bold;
     color:#cfcfcf;
     font-size: 8vmin;
@@ -695,12 +695,17 @@ div.phraseNav {
     width:70vw;
 }
 
-.SignInBack{
+.signUpBack, .signInBack {
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-position:center center;
+}
+.signInBack {
+    display:flex;
+    justify-content: flex-end;
+    text-align: end;
 }
 
 .formContainer {
@@ -716,7 +721,7 @@ div.phraseNav {
     display:flex;
     flex-direction: column;
 }
-form input{
+form input, form select {
     width: 100%;
     padding: .5rem;
     margin: .3rem;

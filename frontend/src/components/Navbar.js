@@ -28,7 +28,9 @@ const NavBar = (props) => {
                         </DropdownToggle>
                         <DropdownMenu right>
                             <DropdownItem>
-                            Log in
+                            <Link to= "/signIn">
+                              Sign in
+                            </Link>
                             </DropdownItem>
                             <DropdownItem divider/>
                             <DropdownItem >

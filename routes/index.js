@@ -1,7 +1,7 @@
 const express = require('express')
 const cityController = require('../controllers/cityController')
 const itineraryController = require ('../controllers/itineraryController')
-
+const userController = require ('../controllers/userController')
 const router = express.Router()
 router.route("/citiesData")
 .get(cityController.getAllCities)
@@ -25,3 +25,9 @@ router.route("/itinerary/:id")
 .get(itineraryController.getItineraryId)
 .delete(itineraryController.deleteItinerary)
 .put(itineraryController.editItinerary)
+
+router.route("/user/signup")
+.post(userController.addNewUser)
+
+router.route("/user/signin")
+.post(userController.logInUser)
