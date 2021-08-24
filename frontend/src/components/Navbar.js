@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom"
+import {NavLink, Link} from "react-router-dom"
 import React, { useState } from 'react';
 import {
   Collapse,
@@ -31,8 +31,10 @@ const NavBar = (props) => {
                             Log in
                             </DropdownItem>
                             <DropdownItem divider/>
-                            <DropdownItem>
-                            Log out
+                            <DropdownItem >
+                              <Link to="/signUp">
+                              Sign up
+                              </Link>
                             </DropdownItem>
                         </DropdownMenu>
                         </UncontrolledDropdown>

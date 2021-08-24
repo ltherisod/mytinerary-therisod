@@ -171,7 +171,7 @@ div.heroButtons button:hover {
     border-radius: 100px;
 }
 
-.carouselTitles, .titles, .titlesTips, .underConstructionBox {
+.carouselTitles, .titles, .titlesTips, .underConstructionBox, .signInTittle {
     padding: 1rem;
     font-family:'Ubuntu', sans-serif;
 }
@@ -179,14 +179,14 @@ div.heroButtons button:hover {
     font-family:'Ubuntu', sans-serif;
 }
 
-.carouselTitles h2, .titles h2, .titlesTips h2, .inputContainer h2, .underConstructionBox h4 {
+.carouselTitles h2, .titles h2, .titlesTips h2, .inputContainer h2, .underConstructionBox h4{
     padding-top: 3rem;
     font-weight: bold;
     color:#dad8d8;
     font-size: 3rem;
 }
 
-.itineraryTitle  h2{
+.itineraryTitle  h2 {
     font-weight: bold;
     color:#dad8d8;
     font-size: 3rem;
@@ -203,6 +203,7 @@ div.heroButtons button:hover {
 .noItineraries div{
     padding-top: 3rem;
 }
+
 
 .carouselTitles span, .titles span, .titlesTips span {
     font-weight: normal;
@@ -583,7 +584,11 @@ div.phraseNav {
     padding: 1vh 2vw;
     margin-top: 2vh;
 }
-
+.signInTittle h2{
+    font-weight: bold;
+    color:#cfcfcf;
+    font-size: 8vmin;
+}
 .likes{
     width: 10vw;
     display: flex;
@@ -621,7 +626,7 @@ div.phraseNav {
     display:flex;
     justify-content:center;
 }
-.itinerarybutton button {
+.itinerarybutton button, .formButtons button{
     padding: 1rem;
     background-color: black;
     color: white;
@@ -666,7 +671,7 @@ div.phraseNav {
     align-items: center;
 }
 .underConstructionBox {
-padding: 1rem;
+    padding: 1rem;
 }
 
 .underConstructionBox img {
@@ -676,7 +681,7 @@ padding: 1rem;
 
 .noItineraries{
     width: 100%;
-    min-height:100vh;
+    min-height:110vh;
     background-size:cover;
     background-position:bottom;
     background-repeat: no-repeat;
@@ -684,11 +689,51 @@ padding: 1rem;
     box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
 }
 .commentsConstruction{
-padding: 2rem;
+    padding: 2rem;
 }
 .commentsConstruction img{
-width:70vw;
+    width:70vw;
 }
+
+.SignInBack{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position:center center;
+}
+
+.formContainer {
+    padding: .5rem 2rem;
+    width:30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formContainer form {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+}
+form input{
+    width: 100%;
+    padding: .5rem;
+    margin: .3rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+}
+
+.formButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+.formButtons button {
+    padding: .3rem 0;
+    margin: .2rem;
+}
+
 @media (max-width:1230px){
     .citydescription {
       position: initial;
@@ -709,9 +754,9 @@ width:70vw;
         height: 50vh;
     }
    .itineraryAuthor{
-    margin-top: 1.5vh;
-    width: 70vw;
-    justify-content: center;
+        margin-top: 1.5vh;
+        width: 70vw;
+        justify-content: center;
    }
    .itineraryTitle{
        flex-direction: column;
