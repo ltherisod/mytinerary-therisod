@@ -584,7 +584,7 @@ div.phraseNav {
     padding: 1vh 2vw;
     margin-top: 2vh;
 }
-.signUpTittle h2{
+.signUpTittle h2, .signInTittle h2{
     font-weight: bold;
     color:#cfcfcf;
     font-size: 8vmin;
@@ -703,30 +703,35 @@ div.phraseNav {
     background-position:center center;
 }
 .signInBack {
+    height: 85vh;
     display:flex;
-    justify-content: flex-end;
-    text-align: end;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: center;
+}
+.signInTittle{
+    padding: 2rem;
 }
 
-.formContainer {
-    padding: .5rem 2rem;
+.formContainer, .formContainerSignIn{
+    padding: 2rem 2rem;
     width:30%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.formContainer form {
+.formContainer form, .signInForm {
     width: 100%;
     display:flex;
     flex-direction: column;
 }
-form input, form select {
-    width: 100%;
-    padding: .5rem;
-    margin: .3rem;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+form input, form select, .signInForm input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 90%;
 }
 
 .formButtons{
@@ -738,6 +743,25 @@ form input, form select {
     padding: .3rem 0;
     margin: .2rem;
 }
+
+form span, .signInForm span {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    border: none;
+    padding: 2vh 2vw;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+
+}
+
+
+.eyeIcon {
+    cursor: pointer;
+} 
+
+
 
 @media (max-width:1230px){
     .citydescription {

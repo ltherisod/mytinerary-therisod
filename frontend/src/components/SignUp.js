@@ -3,13 +3,14 @@ import NavBar from "./Navbar"
 import {Link} from "react-router-dom"
 import axios from "axios"
 import toast from "./Toast"
-
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
 
 const SignUp = () => {
     const [countries, setCountries] = useState([])
     const [newUser, setNewUser] = useState({ firstName: '', lastName: '', email: '', password: '', profilePhoto: '', country: '' })
-    // const [hidden, setHidden] = useState(true)
+    const [hidden, setHidden] = useState(true)
     useEffect(() => {
+        window.scroll(0,0)
         axios.get('https://restcountries.eu/rest/v2/all')
             .then(response => setCountries(response.data))
             .catch(error => console.log(error))
@@ -49,11 +50,15 @@ const SignUp = () => {
                 </div>
                 <div className="formContainer">
                     <form>
-                        <span><input type="text" name="firstName" placeholder="First name" value={newUser.firstName} onChange={userHandler} autoComplete="off"/></span>
-                        <span><input type="text" name="lastName" placeholder="Last name" value={newUser.lastName} onChange={userHandler} autoComplete="off"/></span>
-                        <span><input type="email" name="email" placeholder="Email" value={newUser.email} onChange={userHandler} autoComplete="off"/></span>
-                        <span><input type="password" name="password" placeholder="Password" value={newUser.password} onChange={userHandler} autoComplete="off"/></span>
-                        <span><input type="url" name="profilePhoto" placeholder="Profile photo" value={newUser.profilePhoto} onChange={userHandler} autoComplete="off"/></span>
+                        <span><input type="text" name="firstName" placeholder="First name" value={newUser.firstName} onChange={userHandler} autocomplete="nope"/></span>
+                        <span><input type="text" name="lastName" placeholder="Last name" value={newUser.lastName} onChange={userHandler} autocomplete="nope"/></span>
+                        <span><input type="email" name="email" placeholder="Email" value={newUser.email} onChange={userHandler} autocomplete="nope"/></span>
+                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={newUser.password} onChange={userHandler} autocomplete="nope"/>
+                                 <div onClick={() => setHidden(!hidden)} className="eyeIcon">
+                                    {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons" />}
+                                </div> 
+                                </span>
+                        <span><input type="url" name="profilePhoto" placeholder="Profile photo" value={newUser.profilePhoto} onChange={userHandler} autocomplete="nope"/></span>
                         <span><select type="text" name="country" placeholder="Choose your country" value={newUser.country} onChange={userHandler}>
                         <option>Choose your country</option>
                         {countries.map(country => <option key={country.name} value={country.name}>{country.name}</option>)}

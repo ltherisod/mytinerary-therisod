@@ -14,8 +14,8 @@ const Footer = () => {
                         <nav>
                                 <NavLink to= "/" >Home</NavLink>
                                 <NavLink to = "/cities">Cities</NavLink>
-                                <NavLink to ="/">Sign up</NavLink>
-                                <NavLink to = "/">Log in</NavLink>
+                                <NavLink to ="/signUp">Sign up</NavLink>
+                                <NavLink to = "/signIn">Sign in</NavLink>
                         </nav>
                 </div>
                         

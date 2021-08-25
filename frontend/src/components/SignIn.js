@@ -6,7 +6,7 @@ import toast from "./Toast"
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 const SignIn = () => {
     const [logInUser, setLogInUser] = useState({ email: '', password: '' })
-    // const [hidden, setHidden] = useState(true)
+    const [hidden, setHidden] = useState(true)
     const logUserHandler = (e) =>{
         const value= e.target.value
         const data= e.target.name
@@ -37,16 +37,17 @@ const SignIn = () => {
             <div className="signInBack"style ={{backgroundImage:"url('/assets/LogIn.png')" }}>
                 <div className="signInTittle">
                     <h2>Welcome back!</h2>
-                    <h4>Log in adventurer and connect with Mytinerary's community.</h4>
+                    <h4>Log in adventurer</h4>
+                    <h4>Connect with Mytinerary's community.</h4>
                 </div>
-                <div className="formContainer">
-                    <form>
-                        <span><input type="email" name="email" placeholder="Email" value={logInUser.email} onChange={logUserHandler} autoComplete="off"/></span>
-                        <span><input type="password" name="password" placeholder="Password" value={logInUser.password} onChange={logUserHandler} autoComplete="off"/>
-                        {/* <div onClick={() => setHidden(!hidden)} className="divEye">
-                                    {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons" />}
-                                </div> */}
-                                </span>
+                <div className="formContainerSignIn">
+                    <form className="signInForm">
+                        <span><input type="email" name="email" placeholder="Email" value={logInUser.email} onChange={logUserHandler} autocomplete="nope"/></span>
+                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={logInUser.password} onChange={logUserHandler} autocomplete="nope"/>
+                         <div onClick={() => setHidden(!hidden)} className="eyeIcon">
+                            {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons"/>}
+                        </div>
+                        </span>
                     </form>
                     <div className="formButtons">
                         <button onClick={logInHandler}>Log in</button>
