@@ -1,5 +1,6 @@
 const User = require ('../models/User')
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userController = {
     addNewUser : (req, res) => {
@@ -9,11 +10,16 @@ const userController = {
         User.findOne({email:email})
         .then((user)=>{
             if(user){
+                console.log("if")
                 throw new Error ('This email is already in use')
             }else{
+                console.log("else")
                 newUser.save()
-                .then((newUser) => res.json({success:true, response:newUser, error:null}))
-                .catch((error) => res.json({success:false, response:error}) )
+                .then((newUser) =>{
+                    const token = jwt.sign({...newUser}, process.env.SECRETKEY)
+                    res.json({success:true, response:{firstName:newUser.firstName, profilePhoto:newUser.profilePhoto, token}, error:null})
+                }) 
+                .catch((error) => res.json({success:false, response:error}))
             }
         })
         .catch((error) => res.json({success:false, response:null, error: error.message}))
@@ -25,7 +31,8 @@ const userController = {
             if(!user) throw new Error('Email/password incorrect')
             let correctPass = bcryptjs.compareSync(password, user.password)
             if(!correctPass) throw new Error('Email/password incorrect')
-            res.json({ success:true, response: user})
+            const token = jwt.sign({...user}, process.env.SECRETKEY)
+            res.json({ success:true, response:{token, firstName:user.firstName, profilePhoto:user.profilePhoto}})
          })
         .catch ((error) => res.json({success:false, error:error.message}))
     },
@@ -39,11 +46,6 @@ const userController = {
         User.findOneAndUpdate({_id:req.params.id}, {...req.body})
         .then(() => res.json({success:true}))
         .catch((error) => res.json({success:false, response:error.message}))
-    },
-    getAllUsers:  (req, res) => {
-        User.find()
-        .then((users)=>res.json({success:true, response:users}))
-        .catch((error) =>res.json({success:false, response:error}))
     },
 }
 

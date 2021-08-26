@@ -32,9 +32,6 @@ router.route("/user/signup")
 router.route("/user/signin")
 .post(userController.logInUser)
 
-router.route("/users")
-.get(userController.getAllUsers)
-
 router.route("/user/:id")
 .delete(userController.deleteUser)
 .put(userController.editUser)

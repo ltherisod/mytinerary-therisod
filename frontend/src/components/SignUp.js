@@ -3,9 +3,11 @@ import NavBar from "./Navbar"
 import {Link} from "react-router-dom"
 import axios from "axios"
 import toast from "./Toast"
+import { connect } from 'react-redux'
+import usersActions from '../redux/actions/usersActions'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 
-const SignUp = () => {
+const SignUp = (props) => {
     const [countries, setCountries] = useState([])
     const [newUser, setNewUser] = useState({ firstName: '', lastName: '', email: '', password: '', profilePhoto: '', country: '' })
     const [hidden, setHidden] = useState(true)
@@ -22,22 +24,21 @@ const SignUp = () => {
         setNewUser({...newUser, [data]: value})
     }
 
-    const sendFormHandler = () => {
+    const sendFormHandler = async () => {
         if (Object.values(newUser).some(value => value === "")) {
             toast('error', 'All fields are required!')
-        } else {
-            axios.post('http://localhost:4000/api/user/signup', newUser)
-            .then(res =>{
-                if(!res.data.success){
-                    toast('error', 'This email is already in use')
-                }else{
-                    toast('success', 'Account created successfully')
-                }
-            })
-            .catch((error) => {
-                toast('error', 'Oops!Something went wrong!')
-                console.log(error)
-            })
+            } else {
+               try{
+                    let response = await props.signUpUser(newUser)
+                    if(response.data.success){
+                        toast('success', 'Account created successfully')
+                    }else{
+                        toast('error', 'This email is already in use')
+                    }
+               }catch (error){
+                props.history.push('/fail')
+                return false
+               }
         }      
     }
     return(
@@ -50,15 +51,15 @@ const SignUp = () => {
                 </div>
                 <div className="formContainer">
                     <form>
-                        <span><input type="text" name="firstName" placeholder="First name" value={newUser.firstName} onChange={userHandler} autocomplete="nope"/></span>
-                        <span><input type="text" name="lastName" placeholder="Last name" value={newUser.lastName} onChange={userHandler} autocomplete="nope"/></span>
-                        <span><input type="email" name="email" placeholder="Email" value={newUser.email} onChange={userHandler} autocomplete="nope"/></span>
-                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={newUser.password} onChange={userHandler} autocomplete="nope"/>
+                        <span><input type="text" name="firstName" placeholder="First name" value={newUser.firstName} onChange={userHandler} autoComplete="nope"/></span>
+                        <span><input type="text" name="lastName" placeholder="Last name" value={newUser.lastName} onChange={userHandler} autoComplete="nope"/></span>
+                        <span><input type="email" name="email" placeholder="Email" value={newUser.email} onChange={userHandler} autoComplete="nope"/></span>
+                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={newUser.password} onChange={userHandler} autoComplete="nope"/>
                                  <div onClick={() => setHidden(!hidden)} className="eyeIcon">
                                     {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons" />}
                                 </div> 
                                 </span>
-                        <span><input type="url" name="profilePhoto" placeholder="Profile photo" value={newUser.profilePhoto} onChange={userHandler} autocomplete="nope"/></span>
+                        <span><input type="url" name="profilePhoto" placeholder="Url profile picture" value={newUser.profilePhoto} onChange={userHandler} autoComplete="nope"/></span>
                         <span><select type="text" name="country" placeholder="Choose your country" value={newUser.country} onChange={userHandler}>
                         <option>Choose your country</option>
                         {countries.map(country => <option key={country.name} value={country.name}>{country.name}</option>)}
@@ -76,4 +77,8 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+const mapDispatchToProps = {
+    signUpUser: usersActions.signUpUser
+}
+
+export default connect(null, mapDispatchToProps)(SignUp)

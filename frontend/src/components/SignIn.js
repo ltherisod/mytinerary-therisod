@@ -1,10 +1,12 @@
 import NavBar from "./Navbar"
 import {Link} from "react-router-dom"
 import { useState } from "react"
-import axios from "axios"
 import toast from "./Toast"
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
-const SignIn = () => {
+import { connect } from 'react-redux'
+import usersActions from '../redux/actions/usersActions'
+
+const SignIn = (props) => {
     const [logInUser, setLogInUser] = useState({ email: '', password: '' })
     const [hidden, setHidden] = useState(true)
     const logUserHandler = (e) =>{
@@ -13,24 +15,27 @@ const SignIn = () => {
         setLogInUser({...logInUser, [data]: value})
     }
 
-    const logInHandler = () => {
+    const logInHandler = async () => {
         if (logInUser.email === '' || logInUser.password === '') {
             toast('error', 'All the fields are required!')
         } else {
-            axios.post('http://localhost:4000/api/user/signin', logInUser)
-            .then(res =>{
+            try{
+                let res= await props.signInUser(logInUser)
                 if(!res.data.success){
                     toast('error', 'Wrong email or password! Try again')
                 }else{
                     toast('success', 'Welcome adventurer!')
                 }
-            })
-            .catch((error) => {
-                toast('error', 'Oops!Something went wrong!')
-                console.log(error)
-            })
+            
+            }catch (error){
+                props.history.push('/fail')
+                return false
+               }
+            
         }       
     }
+
+    
     return(
         <div>
             <NavBar/>
@@ -42,8 +47,8 @@ const SignIn = () => {
                 </div>
                 <div className="formContainerSignIn">
                     <form className="signInForm">
-                        <span><input type="email" name="email" placeholder="Email" value={logInUser.email} onChange={logUserHandler} autocomplete="nope"/></span>
-                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={logInUser.password} onChange={logUserHandler} autocomplete="nope"/>
+                        <span><input type="email" name="email" placeholder="Email" value={logInUser.email} onChange={logUserHandler} autoComplete="nope"/></span>
+                        <span><input type={hidden ? "password" : "text"} name="password" placeholder="Password" value={logInUser.password} onChange={logUserHandler} autoComplete="nope"/>
                          <div onClick={() => setHidden(!hidden)} className="eyeIcon">
                             {hidden ? <BsEyeSlash className="inputIcons" /> : <BsEye className="inputIcons"/>}
                         </div>
@@ -60,4 +65,8 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+const mapDispatchToProps = {
+    signInUser: usersActions.signInUser
+}
+
+export default connect (null, mapDispatchToProps)(SignIn)
