@@ -1,7 +1,7 @@
 import NavBar from "./Navbar"
 import {Link} from "react-router-dom"
 import { useState } from "react"
-import toast from "./Toast"
+import toasty from "./Toast"
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
@@ -17,14 +17,14 @@ const SignIn = (props) => {
 
     const logInHandler = async () => {
         if (logInUser.email === '' || logInUser.password === '') {
-            toast('error', 'All the fields are required!')
+            toasty('error', 'All the fields are required!')
         } else {
             try{
                 let res= await props.signInUser(logInUser)
                 if(!res.data.success){
-                    toast('error', 'Wrong email or password! Try again')
+                    toasty('error', 'Wrong email or password! Try again')
                 }else{
-                    toast('success', 'Welcome adventurer!')
+                    toasty('success', 'Welcome adventurer!')
                 }
             
             }catch (error){

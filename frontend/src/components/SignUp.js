@@ -2,20 +2,24 @@ import { useEffect, useState } from "react"
 import NavBar from "./Navbar"
 import {Link} from "react-router-dom"
 import axios from "axios"
-import toast from "./Toast"
+import toasty from "./Toast"
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = (props) => {
     const [countries, setCountries] = useState([])
     const [newUser, setNewUser] = useState({ firstName: '', lastName: '', email: '', password: '', profilePhoto: '', country: '' })
     const [hidden, setHidden] = useState(true)
+
     useEffect(() => {
         window.scroll(0,0)
         axios.get('https://restcountries.eu/rest/v2/all')
             .then(response => setCountries(response.data))
             .catch(error => console.log(error))
+     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const userHandler = (e) =>{
@@ -26,18 +30,33 @@ const SignUp = (props) => {
 
     const sendFormHandler = async () => {
         if (Object.values(newUser).some(value => value === "")) {
-            toast('error', 'All fields are required!')
+            toasty('error', 'All fields are required!')
             } else {
                try{
                     let response = await props.signUpUser(newUser)
+                    console.log(response)
                     if(response.data.success){
-                        toast('success', 'Account created successfully')
-                    }else{
-                        toast('error', 'This email is already in use')
-                    }
-               }catch (error){
-                props.history.push('/fail')
-                return false
+                        toasty('success', 'Account created successfully')
+                       }else if (response.data.errors){
+                            let errors= response.data.errors
+                            errors.map(error => toast.warn(error.message, {
+                                position: "bottom-right",
+                                autoClose: 4000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: false,
+                                draggable: true,
+                                progress: undefined,
+                                }))
+                          }
+                        else{
+                            toasty('error', 'This email is already in use')
+                          }
+
+              }
+            catch (error){
+                    // props.history.push('/fail')
+                    return false
                }
         }      
     }
@@ -73,6 +92,16 @@ const SignUp = (props) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer 
+            position="bottom-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}/>
         </div>
     )
 }

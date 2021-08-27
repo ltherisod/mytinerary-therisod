@@ -16,7 +16,6 @@ import {
 import usersActions from "../redux/actions/usersActions";
 
 const NavBar = (props) => {
-  console.log(props)
   const userIcon = props.token ?  <div className="userProfilePhoto" style={{ backgroundImage: `url('${props.profilePhoto}')` }}></div> : <img className="user" src= "/assets/person-circle.svg" alt="usericon" />
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +44,7 @@ const NavBar = (props) => {
            <DropdownToggle nav caret>
                {userIcon} 
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu right>
               {!props.token && (<DropdownItem>
                 <Link to= "/signIn">Sign in</Link>
                 </DropdownItem>)}

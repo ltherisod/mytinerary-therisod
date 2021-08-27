@@ -2,9 +2,16 @@ const express = require('express')
 const cityController = require('../controllers/cityController')
 const itineraryController = require ('../controllers/itineraryController')
 const userController = require ('../controllers/userController')
+const passport = require('passport')
 const router = express.Router()
+const validator = require('../controllers/validator')
+
 router.route("/citiesData")
-.get(cityController.getAllCities)
+.get(
+    passport.authenticate('jwt', {session:false}),
+    cityController.getAllCities
+    )
+
 .post(cityController.addNewCity)
 
 /router.route("/citiesData/:id")
@@ -27,7 +34,7 @@ router.route("/itinerary/:id")
 .put(itineraryController.editItinerary)
 
 router.route("/user/signup")
-.post(userController.addNewUser)
+.post(validator,userController.addNewUser)
 
 router.route("/user/signin")
 .post(userController.logInUser)

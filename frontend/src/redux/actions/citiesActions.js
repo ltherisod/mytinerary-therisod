@@ -1,9 +1,13 @@
 import axios from "axios"
 const citiesActions = {
     
- getCities : () => {
+ getCities : (token) => {
     return async (dispatch, getState) => {
-        let response = await axios.get('http://localhost:4000/api/citiesData')
+        let response = await axios.get('http://localhost:4000/api/citiesData', {
+            headers :{
+                Authorization: 'Bearer '+ token,
+            }
+        })
         if(!response.data.success){
             throw new Error ('Backend-Data Base problems')
         }

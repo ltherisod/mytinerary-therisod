@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-const toast = (icon, title) =>{
+const toasty = (icon, title) =>{
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -14,4 +14,4 @@ const toast = (icon, title) =>{
       })
 }
 
-export default toast 
+export default toasty 
