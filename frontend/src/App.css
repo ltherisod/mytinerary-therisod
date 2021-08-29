@@ -611,8 +611,13 @@ div.phraseNav {
 .signUpTittle h2, .signInTittle h2{
     font-weight: bold;
     color:#cfcfcf;
-    font-size: 8vmin;
+    font-size: 7vmin;
 }
+
+.signUpTittle h4, .signInTittle h4 {
+    font-size: 3vmin;
+}
+
 .likes{
     width: 10vw;
     display: flex;
@@ -671,21 +676,32 @@ div.phraseNav {
 .itineraryTime {
     display: flex;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
-
+.adventure{
+    order: last;
+    width: 20vw;
+    height: 25vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .itineraryPrice{
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 2em;
 }
-.itineraryTime img, .itineraryPrice img{
+.itineraryPrice img{
     width: 1.5em;
 }
 
 .itineraryPrice img {
     margin-left: .2em;
+}
+
+.itineraryTime img{
+    width:1.3em;
 }
 
 .underConstruction{
@@ -723,16 +739,20 @@ div.phraseNav {
     background-repeat: no-repeat;
     width: 100%;
     min-height: 90vh;
-    background-size: cover;
+    background-size:cover;
     background-position:center center;
 }
-.signInBack {
+.signInBack, .signUpBack{
     min-height: 90vh;
     display:flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     text-align: center;
+}
+
+.signInBack {
+min-height: 86vh;
 }
 .signInTittle{
     padding: 2rem;
@@ -786,17 +806,19 @@ form span, .signInForm span {
 } 
 
 
-
 @media (max-width:1230px){
     .citydescription {
       position: initial;
     }
     .citydescription p {
         display:none;
-    }  
+    } 
+    .formContainer, .formContainerSignIn{
+        width:45vw;
+    } 
 }
 
-@media  (max-width: 994px){
+@media  (max-width: 995px){
 
     .itineraryHead{
         flex-direction: column;
@@ -840,10 +862,27 @@ form span, .signInForm span {
    .underConstructionBox img {
        width: 50%;
    }
+   .formContainer, .formContainerSignIn{
+       width:45vw;
+   }
+   .adventure{
+       display: none;
+   }
+
 }
 @media  (max-width: 750px){
     .itineraryAuthor{
         align-self: center;
         flex-direction: column;
     }
+    .formContainer, .formContainerSignIn{
+        width:60vw;
+    }
+}
+
+@media  (max-width: 630px){
+    .formContainer, .formContainerSignIn{
+        width:80vw;
+    }
+
 }

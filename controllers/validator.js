@@ -20,7 +20,8 @@ const validator = (req, res, next) => {
         profilePhoto:joi.string().min(5).trim().required().messages({
             'string.min': 'Please use a valid url'
         }),
-        country:joi.string().required()
+        country:joi.string().required(),
+        google:joi.boolean(),
     })
 
     const verification = schema.validate(req.body, {abortEarly: false})

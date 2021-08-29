@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken')
 
 const userController = {
     addNewUser : (req, res) => {
-        const {firstName, lastName, email, password, profilePhoto, country} = req.body
+        const {firstName, lastName, email, password, profilePhoto, country, google} = req.body
         let cryptPass = bcryptjs.hashSync(password)
-        const newUser = new User ({firstName, lastName, email, password:cryptPass, profilePhoto, country })
+        const newUser = new User ({firstName, lastName, email, password:cryptPass, profilePhoto, country, google })
         User.findOne({email:email})
         .then((user)=>{
             if(user){
@@ -25,10 +25,11 @@ const userController = {
         .catch((error) => res.json({success:false, response:null, error: error.message}))
     },
     logInUser : (req, res) => {
-        const { email, password} = req.body
+        const { email, password, flagGoogle} = req.body
         User.findOne({email:email})
         .then((user) =>{
             if(!user) throw new Error('Email/password incorrect')
+            if(user.google && !flagGoogle) throw new Error ('You created your account with google, please log with them')
             let correctPass = bcryptjs.compareSync(password, user.password)
             if(!correctPass) throw new Error('Email/password incorrect')
             const token = jwt.sign({...user}, process.env.SECRETKEY)
@@ -47,6 +48,13 @@ const userController = {
         .then(() => res.json({success:true}))
         .catch((error) => res.json({success:false, response:error.message}))
     },
+    verifyToken : (req, res) => {
+        res.json({firstName: req.user.firstName, profilePhoto:req.user.profilePhoto})
+    }
 }
 
 module.exports= userController
+
+
+
+

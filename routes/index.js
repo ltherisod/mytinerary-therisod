@@ -7,10 +7,9 @@ const router = express.Router()
 const validator = require('../controllers/validator')
 
 router.route("/citiesData")
-.get(
-    passport.authenticate('jwt', {session:false}),
-    cityController.getAllCities
-    )
+.get(cityController.getAllCities)
+
+
 
 .post(cityController.addNewCity)
 
@@ -42,3 +41,9 @@ router.route("/user/signin")
 router.route("/user/:id")
 .delete(userController.deleteUser)
 .put(userController.editUser)
+
+router.route ("/verifyToken")
+.get(
+    passport.authenticate('jwt', {session:false}),
+    userController.verifyToken
+    )

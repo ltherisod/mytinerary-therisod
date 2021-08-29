@@ -16,11 +16,9 @@ import {useEffect} from "react"
 const App = (props) => {
     useEffect(()=>{
         if(localStorage.getItem('token')){
-            props.signInLS(
-                localStorage.getItem('firstName'),
-                localStorage.getItem('profilePhoto'),
-                localStorage.getItem('token')
-            )
+            props.signInLS(localStorage.getItem('token'))
+                // localStorage.getItem('firstName'),
+                // localStorage.getItem('profilePhoto'),
         }
           // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])

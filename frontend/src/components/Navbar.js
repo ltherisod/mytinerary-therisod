@@ -24,7 +24,7 @@ const NavBar = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-              <NavbarToggler onClick={toggle} />
+              <NavbarToggler className="ms-2" onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto d-flex align-content-center" navbar>
                 <NavbarBrand href="#"><img src="/assets/logo2.png" alt="logo" className="logo"/></NavbarBrand>
@@ -38,7 +38,7 @@ const NavBar = (props) => {
                   </div>
                 </Nav>
               </Collapse>
-            {props.token && <p className="welcome">Welcome {props.firstName}!</p>}
+                {props.token && <p className="welcome">Welcome {props.firstName}!</p>}
               <UncontrolledDropdown nav inNavbar>
            <div className="userdiv">
            <DropdownToggle nav caret>

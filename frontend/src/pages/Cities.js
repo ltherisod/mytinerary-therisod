@@ -7,18 +7,15 @@ import {connect} from "react-redux"
 import citiesActions from "../redux/actions/citiesActions"
 
 const Cities = (props) => {
-    console.log(props)
     const [loader, setLoader] = useState (true)
     useEffect (() => {
         window.scroll(0,0)
         async function getAllCities(){
             try{
-                await props.getAllCities(props.token)
+                await props.getAllCities()
                 setLoader(false)
             }catch (error){
-                alert('You must be logged in')
-                props.history.push('/')
-                // props.history.push('/fail')
+                props.history.push('/fail')
                 return false
             }
         }
@@ -60,8 +57,7 @@ const Cities = (props) => {
 
 const mapStateToProps = state => {
     return{
-        cities: state.cities.searchedCities,
-        token: state.users.token
+        cities: state.cities.searchedCities
     }
 }
 

@@ -8,7 +8,9 @@ import usersActions from '../redux/actions/usersActions'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import GoogleLogin from 'react-google-login'
+// 356842041133-55s2b7ber4m42gn59mniralrv1ens5v1.apps.googleusercontent.com
+// 356842041133-55s2b7ber4m42gn59mniralrv1ens5v1.apps.googleusercontent.com
 const SignUp = (props) => {
     const [countries, setCountries] = useState([])
     const [newUser, setNewUser] = useState({ firstName: '', lastName: '', email: '', password: '', profilePhoto: '', country: '' })
@@ -36,7 +38,7 @@ const SignUp = (props) => {
                     let response = await props.signUpUser(newUser)
                     console.log(response)
                     if(response.data.success){
-                        toasty('success', 'Account created successfully')
+                        toasty('success', 'Welcome adventurer!')
                        }else if (response.data.errors){
                             let errors= response.data.errors
                             errors.map(error => toast.warn(error.message, {
@@ -60,10 +62,33 @@ const SignUp = (props) => {
                }
         }      
     }
+
+    const responseGoogle = async (res) => {
+        console.log(res)
+        let googleUser = {
+            firstName: res.profileObj.givenName,
+            lastName: res.profileObj.familyName,
+            email: res.profileObj.email,
+            password: res.profileObj.googleId,
+            profilePhoto: res.profileObj.imageUrl,
+            country: 'Argentina',
+            google:true 
+        }
+        let response = await props.signUpUser(googleUser)
+        console.log(response)
+        if(response.data.success){
+            toasty('success', 'Welcome adventurer!')
+        } else {
+            toasty('error', 'This email is already in use')
+          }
+    }
+    
+
     return(
         <div>
             <NavBar/>
-            <div className="signUpBack"style ={{backgroundImage:"url('/assets/signIn.png')" }}>
+            {/* style ={{backgroundImage:"url('/assets/signIn.png')" }} */}
+            <div className="signUpBack" style={{backgroundImage:"url('/assets/signInmedia2.png')"}}>
                 <div className="signUpTittle">
                     <h2>Hello Adventurer!</h2>
                     <h4>Create your account by filling the form below.</h4>
@@ -87,7 +112,16 @@ const SignUp = (props) => {
                     </form>
                     <div className="formButtons">
                         <button onClick={sendFormHandler}>Create account</button>
-                        <button>Sign in with Google</button>
+                        <GoogleLogin
+                                    clientId="356842041133-55s2b7ber4m42gn59mniralrv1ens5v1.apps.googleusercontent.com"
+                                    render={renderProps => (
+                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</button>
+                                    )}
+                                    buttonText="Login"
+                                    onSuccess={responseGoogle}
+                                    // onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                                                        />
                         <p>Already have an account? <Link to = "/signIn">Log in here</Link></p>
                     </div>
                 </div>

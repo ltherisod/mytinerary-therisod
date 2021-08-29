@@ -8,9 +8,12 @@ const {authorName, authorPhoto, src, hashtags, title, price, likes, description,
             <div className="itineraryHead">
                 <div className="itineraryPhoto" style={{backgroundImage:`url('${src}')`}} ></div>
                 <div className="itineraryData">
-                    <div className="itineraryAuthor">
-                        <img className="authorPhoto" src={authorPhoto} alt="authorPhoto"/>
-                        <span className="authorName">{authorName}</span>
+                    <div className="d-flex justify-content-between">
+                            <div className="itineraryAuthor">
+                                <img className="authorPhoto" src={authorPhoto} alt="authorPhoto"/>
+                                <span className="authorName">{authorName}</span>
+                            </div>    
+                    <div className="adventure" style={{backgroundImage:`url('/assets/mini.png')`}}></div>
                     </div>
                     <div className="itineraryTitle">
                             <h2>{title}</h2>

@@ -5,6 +5,7 @@ import toasty from "./Toast"
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { connect } from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
+import GoogleLogin from 'react-google-login'
 
 const SignIn = (props) => {
     const [logInUser, setLogInUser] = useState({ email: '', password: '' })
@@ -26,7 +27,6 @@ const SignIn = (props) => {
                 }else{
                     toasty('success', 'Welcome adventurer!')
                 }
-            
             }catch (error){
                 props.history.push('/fail')
                 return false
@@ -35,11 +35,24 @@ const SignIn = (props) => {
         }       
     }
 
+    const responseGoogle = async (response) => {
+        let logInUserGoogle = {
+            email: response.profileObj.email,
+            password: response.profileObj.googleId,
+            flagGoogle: true
+        }
+        let res= await props.signInUser(logInUserGoogle)
+        if(!res.data.success){
+            toasty('error', 'Wrong email or password! Try again')
+        }else{
+            toasty('success', 'Welcome adventurer!')
+        }
+    }
     
     return(
         <div>
             <NavBar/>
-            <div className="signInBack"style ={{backgroundImage:"url('/assets/LogIn.png')" }}>
+            <div className="signInBack"style ={{backgroundImage:"url('/assets/LogInmedia2.png')" }}>
                 <div className="signInTittle">
                     <h2>Welcome back!</h2>
                     <h4>Log in adventurer</h4>
@@ -56,7 +69,16 @@ const SignIn = (props) => {
                     </form>
                     <div className="formButtons">
                         <button onClick={logInHandler}>Log in</button>
-                        <button>Log in with Google</button>
+                        <GoogleLogin
+                                    clientId="356842041133-55s2b7ber4m42gn59mniralrv1ens5v1.apps.googleusercontent.com"
+                                    render={renderProps => (
+                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Log in with Google</button>
+                                    )}
+                                    buttonText="Login"
+                                    onSuccess={responseGoogle}
+                                    // onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                                                        />
                         <p>Don't you have an account yet? <Link to="/signUp">Sign up here</Link></p>
                     </div>
                 </div>
