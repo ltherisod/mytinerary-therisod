@@ -607,6 +607,7 @@ div.phraseNav {
     font-size: 2.5em;
     padding: 1vh 2vw;
     margin-top: 2vh;
+    color:#999696;
 }
 .signUpTittle h2, .signInTittle h2{
     font-weight: bold;
@@ -640,9 +641,20 @@ div.phraseNav {
 }
 
 .hashtags{
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: space-around;
+}
+
+.hashtags p {
+    color: rgb(88, 88, 88);
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.hashtags p:hover {
+    color:#2ad7dd;
+
 }
 
 .itineraryIcons{
@@ -852,6 +864,7 @@ form span, .signInForm span {
        justify-content: center;
        font-size: 15px;
    }
+
    .itineraryIcons {
        width: 100%;
        display: flex;
