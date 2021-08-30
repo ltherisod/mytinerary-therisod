@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom"
-const Footer = () => {
+import { connect } from 'react-redux'
+const Footer = (props) => {
     return (
         <footer>
             <div className = "footerContainer"style={{backgroundImage: `url('/assets/footerbanner.jpg')`}}>
@@ -14,8 +15,8 @@ const Footer = () => {
                         <nav>
                                 <NavLink to= "/" >Home</NavLink>
                                 <NavLink to = "/cities">Cities</NavLink>
-                                <NavLink to ="/signUp">Sign up</NavLink>
-                                <NavLink to = "/signIn">Sign in</NavLink>
+                                {!props.token && (<NavLink to ="/signUp">Sign up</NavLink>)}
+                                {!props.token && (<NavLink to = "/signIn">Sign in</NavLink>)}
                         </nav>
                 </div>
                         
@@ -32,5 +33,10 @@ const Footer = () => {
         </footer>
     )
 }
+const mapStateToProps = (state) => {
+    return{
+      token:state.users.token,
+    }
+}
 
-export default Footer
+export default connect(mapStateToProps)(Footer)
