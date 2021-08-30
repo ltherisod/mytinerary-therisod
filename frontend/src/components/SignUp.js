@@ -74,13 +74,16 @@ const SignUp = (props) => {
             country: 'Argentina',
             google:true 
         }
-        let response = await props.signUpUser(googleUser)
-        console.log(response)
-        if(response.data.success){
-            toasty('success', 'Welcome adventurer!')
-        } else {
-            toasty('error', 'This email is already in use')
-          }
+        try{
+            let response = await props.signUpUser(googleUser)
+            if(response.data.success){
+                toasty('success', 'Welcome adventurer!')
+            } else {
+                toasty('error', 'This email is already in use')
+            }
+        }catch (error){
+            return false
+        }
     }
     
 

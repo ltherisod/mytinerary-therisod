@@ -41,11 +41,15 @@ const SignIn = (props) => {
             password: response.profileObj.googleId,
             flagGoogle: true
         }
-        let res= await props.signInUser(logInUserGoogle)
-        if(!res.data.success){
-            toasty('error', 'Wrong email or password! Try again')
-        }else{
-            toasty('success', 'Welcome adventurer!')
+        try{
+                let res= await props.signInUser(logInUserGoogle)
+            if(!res.data.success){
+                toasty('error', 'Wrong email or password! Try again')
+            }else{
+                toasty('success', 'Welcome adventurer!')
+            }
+        }catch (error){
+            return false
         }
     }
     

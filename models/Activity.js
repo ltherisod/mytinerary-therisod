@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const  activitySchema = new mongoose.Schema({
     activities:[{
         name:{type:String},
-        Photo:{type:String}
+        photo:{type:String}
     }],
     itineraryId:{type: mongoose.Types.ObjectId, ref:'itinerary'}
 })
