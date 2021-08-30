@@ -10,10 +10,8 @@ const userController = {
         User.findOne({email:email})
         .then((user)=>{
             if(user){
-                console.log("if")
                 throw new Error ('This email is already in use')
             }else{
-                console.log("else")
                 newUser.save()
                 .then((newUser) =>{
                     const token = jwt.sign({...newUser}, process.env.SECRETKEY)

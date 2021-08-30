@@ -80,7 +80,7 @@ const SignIn = (props) => {
                                     )}
                                     buttonText="Login"
                                     onSuccess={responseGoogle}
-                                    // onFailure={responseGoogle}
+                                    onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                                                         />
                         <p>Don't you have an account yet? <Link to="/signUp">Sign up here</Link></p>

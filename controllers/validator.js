@@ -15,7 +15,7 @@ const validator = (req, res, next) => {
         }),
         password:joi.string().trim().required().messages({
             'string.empty' : 'You must complete this field',
-            'string.pattern.base' : 'Password must have minimum eight characters, at least one letter and one number'
+            // 'string.pattern.base' : 'Password must have minimum eight characters, at least one letter and one number'
         }),
         profilePhoto:joi.string().min(5).trim().required().messages({
             'string.min': 'Please use a valid url'

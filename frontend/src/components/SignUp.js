@@ -79,7 +79,7 @@ const SignUp = (props) => {
             if(response.data.success){
                 toasty('success', 'Welcome adventurer!')
             } else {
-                toasty('error', 'This email is already in use')
+                toasty('error', 'You created your account with google, please log with them')
             }
         }catch (error){
             return false
@@ -122,7 +122,7 @@ const SignUp = (props) => {
                                     )}
                                     buttonText="Login"
                                     onSuccess={responseGoogle}
-                                    // onFailure={responseGoogle}
+                                    onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                                                         />
                         <p>Already have an account? <Link to = "/signIn">Log in here</Link></p>
