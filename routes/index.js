@@ -33,6 +33,12 @@ router.route("/itinerary/:id")
 .delete(itineraryController.deleteItinerary)
 .put(itineraryController.editItinerary)
 
+router.route("/itinerary/like/:id")
+.put(
+    passport.authenticate('jwt', {session:false}),
+    itineraryController.likeItinerary
+    )
+
 router.route("/user/signup")
 .post(validator,userController.addNewUser)
 

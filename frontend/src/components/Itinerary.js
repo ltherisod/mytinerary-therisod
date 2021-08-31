@@ -1,8 +1,29 @@
 import { useState } from "react"
+import { connect } from "react-redux"
+import itinerariesActions from "../redux/actions/itinerariesActions"
+import toasty from "./Toast"
 
 const Itinerary = (props) => {
 const [shown, setShown] = useState(false)
-const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time} = props.data
+const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time, _id} = props.data
+const [likeIcon, setLikeIcon] = useState(true)
+const [itinerariesLikes, setItinerariesLikes] = useState(likes)
+
+
+const likeItinerary = async ()=>{
+    setLikeIcon(false)
+    if(!props.token){
+        toasty('error', 'You must be logged in to like this post')
+    }else{
+        props.likeItinerary(_id, props.token)
+        // .then((response) => console.log(response))
+        let response = await props.likeItinerary(_id, props.token)
+        setItinerariesLikes(response.data.response.likes)
+    }
+    setLikeIcon(true)
+}
+
+console.log(itinerariesLikes)
     return(
         <div className="itineraryBody">
             <div className="itineraryHead">
@@ -17,9 +38,9 @@ const {authorName, authorPhoto, src, hashtags, title, price, likes, description,
                     </div>
                     <div className="itineraryTitle">
                             <h2>{title}</h2>
-                        <div className="likes">
+                        <div onClick={(likeIcon ? likeItinerary : null )} className="likes">
                            <img src="/assets/instagram-like-3507.svg" alt="likeinsta"/>
-                           <p>{likes}</p>
+                           <p>{itinerariesLikes.length}</p>
                         </div>
                     </div>
                     <p className="itineraryDescrip">{description}</p>
@@ -50,4 +71,13 @@ const {authorName, authorPhoto, src, hashtags, title, price, likes, description,
     )
 }
 
-export default Itinerary
+const mapStateToProps = (state) => {
+    return{
+        token:state.users.token
+    }
+}
+const mapDispatchToProps ={
+    likeItinerary:  itinerariesActions.likeItinerary
+}    
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary) 

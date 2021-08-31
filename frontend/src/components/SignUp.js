@@ -54,10 +54,9 @@ const SignUp = (props) => {
                         else{
                             toasty('error', 'This email is already in use')
                           }
-
               }
             catch (error){
-                    // props.history.push('/fail')
+                    props.history.push('/fail')
                     return false
                }
         }      
@@ -82,6 +81,7 @@ const SignUp = (props) => {
                 toasty('error', 'You created your account with google, please log with them')
             }
         }catch (error){
+            props.history.push('/fail')
             return false
         }
     }
@@ -122,7 +122,7 @@ const SignUp = (props) => {
                                     )}
                                     buttonText="Login"
                                     onSuccess={responseGoogle}
-                                    onFailure={responseGoogle}
+                                    // onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                                                         />
                         <p>Already have an account? <Link to = "/signIn">Log in here</Link></p>

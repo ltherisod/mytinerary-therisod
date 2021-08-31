@@ -8,6 +8,22 @@ const itinerariesActions = {
             }
             dispatch ({ type:'GET_ITINERARIES_PER_CITY', payload:res.data.response})
         }
+    },
+    likeItinerary: (id, token) =>{console.log(id,token)
+        return async () => {
+                try{
+                    let response = await axios.put(`http://localhost:4000/api/itinerary/like/${id}`, {},{
+                    headers:{
+                        Authorization: 'Bearer '+token
+                    }
+                })
+                return response
+            
+                }catch (error){
+                    console.log(error)
+                }
+            
+        }
     }
 }
 
