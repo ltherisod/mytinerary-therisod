@@ -47,6 +47,7 @@ router.route("/itinerary/comments/:id")
     
 router.route("/itinerary/comments/comment/:id")
 .delete (itineraryController.deleteAComment)
+.put(itineraryController.editAComment)
 
 router.route("/user/signup")
 .post(validator,userController.addNewUser)

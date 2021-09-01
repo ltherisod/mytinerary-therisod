@@ -61,7 +61,9 @@ getItineraryId: (req, res) => {
     .catch((error) => res.json({success:false, response:error}))
  },
  editAComment: (req, res) => {
-     Itinerary.findOneAndUpdate({})
+     Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$set:{"comments.$.comment": req.body.comment}},{new:true})
+     .then((updatedComment) => res.json({success:true, response:updatedComment.comments}))
+     .catch((error) => res.json({success:true, response:error }))
  }
 } 
 
