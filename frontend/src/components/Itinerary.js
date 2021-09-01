@@ -83,13 +83,12 @@ const buttonHandler = () => {
             {button && 
                 <>
                     <div className="activitiesHeader">
-                        <h2 className="activitiesTitle">Activities to do </h2>
+                        <h2>LET'S EXPLORE </h2>
+                        <div className="textDeco"></div>
                     </div>
                     <div className="activitiesSection">
                         <Activity activities={showActivities}/>
-                        <div className="commentsConstruction">
-                            <Comments/>
-                        </div>    
+                        <Comments/>
                     </div>
                         
                        

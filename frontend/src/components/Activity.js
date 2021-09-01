@@ -9,13 +9,12 @@ const Activity = (props) => {
         <Carousel className="carrouselActivities carousel-fade">
             {props.activities.map(activity => {
                 return ( 
-                    <Carousel.Item interval={3000} className="photoAContainer">
-                        <div className="activityPhoto" alt="" style={{backgroundImage:`url("${activity.photo}")`}} />
+                    <Carousel.Item interval={3500} className="photoAContainer" key={activity._id}>
+                            <div  className="activityPhoto" alt="" style={{backgroundImage:`url("${activity.photo}")`}} />
                         <Carousel.Caption className="caption">
                             <p>{activity.name}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                
                 )})}       
         </Carousel>
     )

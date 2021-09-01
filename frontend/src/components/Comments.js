@@ -5,8 +5,10 @@ const Comments = () => {
 
     }
 return(
-    <div className="commentsContainer">
-            <div className="commentsTittle">Comments</div>
+    <div className="commentsConstruction">
+            <div className="commentsTittle">
+                <h4>Comments</h4>
+            </div>
                  {/* <div className="noComments">
                     <p>No comments yet</p>
                     <p>Be the first to post one!</p>

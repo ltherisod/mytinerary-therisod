@@ -50,11 +50,19 @@ getItineraryId: (req, res) => {
      .catch((error) => res.json({success:false, response:error}))
  },
  addCommentPerItinerary: (req, res) =>{
-     Itinerary.findByIdAndUpdate({_id:req.params.id}, {$push:{comments : comment, userId: req.user._id}}, {new:true})
-     .then((newComment) => res.json({success:true , response:{comments: newComment , userId: req.user._id}}))
-     .catch((error) => console.log(error))
-     //probar la response con newComment
+     Itinerary.findOneAndUpdate({_id:req.params.id}, {$push:{comments :{comment:req.body.comment, userId: req.user._id}}}, {new:true})
+     .then((newComment) => res.json({success:true , response:newComment.comments}))
+     .catch((error) => res.json({success:false, response:error}))
+    
+ },
+ deleteAComment : (req, res) => {
+    Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$pull:{comments:{_id:req.params.id}}}, {new:true})
+    .then((commentDeleted) => res.json({success:true, response:commentDeleted.comments}))
+    .catch((error) => res.json({success:false, response:error}))
+ },
+ editAComment: (req, res) => {
+     Itinerary.findOneAndUpdate({})
  }
-}
+} 
 
 module.exports=itineraryController

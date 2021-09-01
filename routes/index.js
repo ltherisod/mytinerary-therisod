@@ -43,7 +43,10 @@ router.route("/itinerary/comments/:id")
 .post(
     passport.authenticate('jwt', {session:false}),
     itineraryController.addCommentPerItinerary
-    )    
+    ) 
+    
+router.route("/itinerary/comments/comment/:id")
+.delete (itineraryController.deleteAComment)
 
 router.route("/user/signup")
 .post(validator,userController.addNewUser)

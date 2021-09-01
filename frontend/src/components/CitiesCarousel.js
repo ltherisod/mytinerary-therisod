@@ -123,8 +123,8 @@ const CitiesCarousel = () => {
     >
       <CarouselIndicators items={slides} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+      <CarouselControl className="carouselHomePrev" direction="prev" directionText="Previous" onClickHandler={previous} />
+      <CarouselControl className="carouselHomeNext" direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
     </div>
   );

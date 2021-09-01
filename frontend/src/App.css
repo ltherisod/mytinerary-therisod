@@ -85,10 +85,12 @@ nav a:hover{
     font-family: 'Zilla Slab Highlight', cursive;
 }
 
+
+
 .cityHeader h1{
     font-size: 11vmin;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
-    color: rgb(221, 216, 216);;
+    color: rgb(221, 216, 216);
 }
 
 
@@ -125,12 +127,14 @@ div.heroContainer h1{
     font-weight: 550;
     font-size: 20vmin;
 }
+
 div.heroContainer h3{
     font-family: 'Zilla Slab Highlight', cursive;
     color:whitesmoke;
     text-align: center;
     font-size: 4vmin;
 }
+
 div.heroButtons button{
  padding: 1rem;
  background-color: black;
@@ -175,13 +179,17 @@ div.heroButtons button:hover {
     box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
 }
 
-.photoTitle {
+.photoTitle, .caption {
     font-family: 'Zilla Slab Highlight', cursive;
     align-self: center;
     color: whitesmoke;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.384);
     font-weight: bold;
     font-size: 6vmin;
+}
+
+.caption p{
+    color: rgb(221, 216, 216);
 }
 
 .sr-only {
@@ -603,7 +611,7 @@ div.phraseNav {
     align-items: center;
 }
 
-.itineraryTitle h2 {
+.itineraryTitle h2, .commentsTittle h4, .activitiesHeader h2 {
     font-size: 2.5em;
     padding: 1vh 2vw;
     margin-top: 2vh;
@@ -717,10 +725,12 @@ div.phraseNav {
 }
 
 .underConstruction{
+    text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+
 .underConstructionBox {
     padding: 1rem;
 }
@@ -765,6 +775,7 @@ div.phraseNav {
 .signInBack {
 min-height: 86vh;
 }
+
 .signInTittle{
     padding: 2rem;
 }
@@ -815,18 +826,26 @@ form span, .signInForm span {
 .eyeIcon {
     cursor: pointer;
 } 
+
 .commentsConstruction{
     padding: 1em;
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
 }
+
 .comments{
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    height: 60vh;
     margin-bottom: 2vh;
 }
+
+
+.commentsTittle h4{
+font-size: 2em;
+}
+
 .activityContainer{
      width: 40vw;
 }
@@ -840,24 +859,37 @@ form span, .signInForm span {
 }
 
 .activityPhoto{
-    padding: 1em;
-    width: 50vw;
-    height: 60vh;
+    width: 40vw;
+    height: 80vh;
     background-repeat: no-repeat;
-    background-position:50%;
     background-size: cover;
-    border-radius: 30px;
+    background-position: 50%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+    
+}
+
+.activitiesHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 3vh 0;
 }
 
 .activitiesSection{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    margin-bottom: 3vh;
 }
 
 .carrouselActivities{
-    width: 40%;
+    width: 40vw;
     min-height: 60vh !important;
+}
+.Carousel-inner {
+    border-radius: 10px!important;
 }
 
 @media (max-width:1230px){
@@ -920,8 +952,15 @@ form span, .signInForm span {
    .formContainer, .formContainerSignIn{
        width:45vw;
    }
+
    .adventure{
        display: none;
+   }
+
+   .activitiesHeader {
+       display: flex;
+       justify-content: flex-start;
+       align-self: flex-start;
    }
 
 }
