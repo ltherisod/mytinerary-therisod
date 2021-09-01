@@ -24,6 +24,33 @@ const itinerariesActions = {
                 }
             
         }
+    },
+    getActivitiesPerItinerary : (id)=>{
+        return async () => {
+            try{
+                let response = await axios.get(`http://localhost:4000/api/activities/${id}`)
+                if(response.data.success){
+                    return response.data.response[0].activities
+                }
+            }catch(error){
+                console.log(error)
+            }
+        }
+
+    },
+    addCommentPerItinerary:(id, comment, token)=>{
+        return async () => {
+                    try{
+                        let response = await axios.post(`http://localhost:4000/api/itinerary/comments/${id}`, {comment} ,{
+                            headers : {
+                                Authorization: 'Bearer '+token
+                            }
+                        })
+                        return response
+                    }catch (error){
+                        console.log(error)
+                    }
+        }
     }
 }
 

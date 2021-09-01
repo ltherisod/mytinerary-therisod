@@ -717,10 +717,9 @@ div.phraseNav {
 }
 
 .underConstruction{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .underConstructionBox {
     padding: 1rem;
@@ -740,12 +739,12 @@ div.phraseNav {
     border-radius: 20px;
     box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
 }
-.commentsConstruction{
+/* .commentsConstruction{
     padding: 2rem;
 }
 .commentsConstruction img{
     width:70vw;
-}
+} */
 
 .signUpBack, .signInBack {
     background-repeat: no-repeat;
@@ -816,7 +815,50 @@ form span, .signInForm span {
 .eyeIcon {
     cursor: pointer;
 } 
+.commentsConstruction{
+    padding: 1em;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.comments{
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin-bottom: 2vh;
+}
+.activityContainer{
+     width: 40vw;
+}
 
+.photoAContainer{
+    width: 100%;
+}
+
+.commentsContainer{
+    width:50%;
+}
+
+.activityPhoto{
+    padding: 1em;
+    width: 50vw;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-position:50%;
+    background-size: cover;
+    border-radius: 30px;
+}
+
+.activitiesSection{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.carrouselActivities{
+    width: 40%;
+    min-height: 60vh !important;
+}
 
 @media (max-width:1230px){
     .citydescription {

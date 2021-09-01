@@ -1,13 +1,18 @@
 import { useState } from "react"
 import { connect } from "react-redux"
+import Activity from "./Activity"
 import itinerariesActions from "../redux/actions/itinerariesActions"
+import Comments from "./Comments"
 import toasty from "./Toast"
 
+
+
 const Itinerary = (props) => {
-const [shown, setShown] = useState(false)
 const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time, _id} = props.data
 const [likeIcon, setLikeIcon] = useState(true)
 const [itinerariesLikes, setItinerariesLikes] = useState(likes)
+const [showActivities, setShowActivities]= useState([])
+const [button, setButton] = useState(false)
 
 
 const likeItinerary = async ()=>{
@@ -15,15 +20,35 @@ const likeItinerary = async ()=>{
     if(!props.token){
         toasty('error', 'You must be logged in to like this post')
     }else{
-        props.likeItinerary(_id, props.token)
-        // .then((response) => console.log(response))
         let response = await props.likeItinerary(_id, props.token)
-        setItinerariesLikes(response.data.response.likes)
+        setItinerariesLikes(response.data.response)
     }
     setLikeIcon(true)
 }
+async function activityItinerary (){
+    try{
+        let response = await props.getActivitiesPerItinerary(_id)
+        console.log(response)
+        setShowActivities(response)
+        console.log("fetcheo")
 
-console.log(itinerariesLikes)
+    }catch (error){
+        console.log(error)
+    }
+}
+
+console.log(showActivities)
+const buttonHandler = () => {
+        setButton(!button)
+        console.log(showActivities.length)
+        if(!button  && !showActivities.length){
+            activityItinerary()
+        }
+    
+}
+
+
+
     return(
         <div className="itineraryBody">
             <div className="itineraryHead">
@@ -55,17 +80,25 @@ console.log(itinerariesLikes)
         </div>
             
             <div className="underConstruction">
-            {shown && (
-                <div className="commentsConstruction">
-                     <h4>UNDER CONSTRUCTION</h4>
-                <div className="textDeco"></div>
-                    <img alt="icon" src="/assets/info3.gif"/>
-                </div>
-                )}
+            {button && 
+                <>
+                    <div className="activitiesHeader">
+                        <h2 className="activitiesTitle">Activities to do </h2>
+                    </div>
+                    <div className="activitiesSection">
+                        <Activity activities={showActivities}/>
+                        <div className="commentsConstruction">
+                            <Comments/>
+                        </div>    
+                    </div>
+                        
+                       
+                </>
+                }
             </div>
           
             <div className="itinerarybutton">
-                <button onClick={()=>setShown(!shown)}>{shown ? "View Less" : "View More"}</button>
+                <button onClick={buttonHandler}>{!button  ? "View More" : "View Less"}</button>
             </div>
         </div>
     )
@@ -77,7 +110,8 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps ={
-    likeItinerary:  itinerariesActions.likeItinerary
+    likeItinerary:  itinerariesActions.likeItinerary,
+    getActivitiesPerItinerary: itinerariesActions.getActivitiesPerItinerary
 }    
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary) 

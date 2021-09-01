@@ -36,22 +36,25 @@ getItineraryId: (req, res) => {
  },
  likeItinerary:(req,res) =>{
      Itinerary.findOne({_id: req.params.id})
-     .then((itinerary) =>{console.log(itinerary)
+     .then((itinerary) =>{
          if(itinerary.likes.includes(req.user._id)){
-             console.log("if")
             Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
-            .then((likes)=> res.json({success:true, response:{likes:req.user.id}}))
+            .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
+            .catch((error) => console.log(error))
          }else{
-             console.log("else")
              Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
-             .then((likes) => res.json({success:true, response:{likes:req.user.id}}))
+             .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
+             .catch((error) => console.log(error))
          }
      })
      .catch((error) => res.json({success:false, response:error}))
+ },
+ addCommentPerItinerary: (req, res) =>{
+     Itinerary.findByIdAndUpdate({_id:req.params.id}, {$push:{comments : comment, userId: req.user._id}}, {new:true})
+     .then((newComment) => res.json({success:true , response:{comments: newComment , userId: req.user._id}}))
+     .catch((error) => console.log(error))
+     //probar la response con newComment
  }
-//  commentAnItinerary: (req, res) =>{
-//      Itinerary.findByIdAndUpdate({_id:req.params.id}, {$push:{}})
-//  }
 }
 
 module.exports=itineraryController

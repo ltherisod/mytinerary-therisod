@@ -3,7 +3,7 @@ const Activity = require ('../models/Activity')
 const activityController ={
     getActivitiesPerItinerary : (req, res) => {
         Activity.find({itineraryId: req.params.id})
-        .then((activities) => res.json ({success:true, response:activities }))
+        .then((activities) => res.json({success:true, response: activities}))
         .catch((error) => res.json ({success:false, response:error.message}))
     },
     editActivity : (req, res) => {

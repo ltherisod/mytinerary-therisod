@@ -39,6 +39,12 @@ router.route("/itinerary/like/:id")
     itineraryController.likeItinerary
     )
 
+router.route("/itinerary/comments/:id")
+.post(
+    passport.authenticate('jwt', {session:false}),
+    itineraryController.addCommentPerItinerary
+    )    
+
 router.route("/user/signup")
 .post(validator,userController.addNewUser)
 

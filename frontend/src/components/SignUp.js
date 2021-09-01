@@ -34,31 +34,31 @@ const SignUp = (props) => {
         if (Object.values(newUser).some(value => value === "")) {
             toasty('error', 'All fields are required!')
             } else {
-               try{
+                try{
                     let response = await props.signUpUser(newUser)
                     console.log(response)
                     if(response.data.success){
                         toasty('success', 'Welcome adventurer!')
-                       }else if (response.data.errors){
-                            let errors= response.data.errors
-                            errors.map(error => toast.warn(error.message, {
-                                position: "bottom-right",
-                                autoClose: 4000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: false,
-                                draggable: true,
-                                progress: undefined,
-                                }))
-                          }
+                    }else if (response.data.errors){ 
+                        let errors= response.data.errors
+                        errors.map(error => toast.warn(error.message, {
+                            position: "bottom-right",
+                            autoClose: 4000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            }))
+                        }
                         else{
                             toasty('error', 'This email is already in use')
                           }
-              }
-            catch (error){
+                }
+                catch(error){
                     props.history.push('/fail')
                     return false
-               }
+                }   
         }      
     }
 
