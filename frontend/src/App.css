@@ -868,7 +868,9 @@ font-size: 2em;
     box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
     
 }
-
+div.carrouselActivities a span {
+    background-color: transparent;
+}
 .activitiesHeader{
     display: flex;
     flex-direction: column;

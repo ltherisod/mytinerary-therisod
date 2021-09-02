@@ -49,22 +49,48 @@ getItineraryId: (req, res) => {
      })
      .catch((error) => res.json({success:false, response:error}))
  },
- addCommentPerItinerary: (req, res) =>{
-     Itinerary.findOneAndUpdate({_id:req.params.id}, {$push:{comments :{comment:req.body.comment, userId: req.user._id}}}, {new:true})
-     .then((newComment) => res.json({success:true , response:newComment.comments}))
-     .catch((error) => res.json({success:false, response:error}))
-    
- },
- deleteAComment : (req, res) => {
-    Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$pull:{comments:{_id:req.params.id}}}, {new:true})
-    .then((commentDeleted) => res.json({success:true, response:commentDeleted.comments}))
-    .catch((error) => res.json({success:false, response:error}))
- },
- editAComment: (req, res) => {
-     Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$set:{"comments.$.comment": req.body.comment}},{new:true})
-     .then((updatedComment) => res.json({success:true, response:updatedComment.comments}))
-     .catch((error) => res.json({success:true, response:error }))
+ modifyComment: async (req, res) => {
+     switch(req.body.type){
+         case "addComment":
+             try{
+                 const newComment = await Itinerary.findOneAndUpdate({_id:req.params.id}, {$push:{comments :{comment:req.body.comment, userId: req.user._id}}}, {new:true}).populate("comments.userId")
+                 if(newComment){
+                    res.json({success:true , response:newComment.comments})
+                 }else{
+                     throw new Error()
+                 }
+             }catch (error){
+                res.json({success:false , response:error})
+             }
+            
+            break
+        case "editComment" : 
+            try{
+                const updateComment = await Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$set:{"comments.$.comment": req.body.comment}},{new:true})
+                if(updateComment){
+                    res.json({success:true, response:updatedComment.comments})
+                }else{
+                    throw new Error()
+                }
+            }catch (error){
+                res.json({success:false, response:error })
+            }
+            break
+        case "deleteComment":
+            try{
+                const commentDeleted = await  Itinerary.findOneAndUpdate({"comments._id":req.body.commentId}, {$pull:{comments:{_id:req.body.commentId}}})
+                if(commentDeleted){
+                    res.json({success:true})
+                }else {
+                    throw new Error()
+                }
+            }catch (error){
+                res.json({success:false, response:error})
+            }
+         break  
+    }
  }
+ 
 } 
 
 module.exports=itineraryController

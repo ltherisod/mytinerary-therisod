@@ -9,7 +9,7 @@ const itinerariesActions = {
             dispatch ({ type:'GET_ITINERARIES_PER_CITY', payload:res.data.response})
         }
     },
-    likeItinerary: (id, token) =>{console.log(id,token)
+    likeItinerary: (id, token) =>{
         return async () => {
                 try{
                     let response = await axios.put(`http://localhost:4000/api/itinerary/like/${id}`, {},{
@@ -41,15 +41,46 @@ const itinerariesActions = {
     addCommentPerItinerary:(id, comment, token)=>{
         return async () => {
                     try{
-                        let response = await axios.post(`http://localhost:4000/api/itinerary/comments/${id}`, {comment} ,{
+                        let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {comment, type:"addComment"} ,{
                             headers : {
                                 Authorization: 'Bearer '+token
                             }
                         })
-                        return response
+                        return response.data.response
                     }catch (error){
-                        console.log(error)
+                       console.log(error)
                     }
+        }
+    },
+    editAComment:(id, token, comment ) => {
+        return async () => {
+            try{
+                let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {comment, type:"editComment"},{
+                    headers : {
+                        Authorization: 'Bearer '+token
+                    }
+                })
+                return response.data.response
+            }catch (error){
+                console.log(error)
+            }
+        }
+    },
+    deleteAComment:(id, token, commentId ) => {
+      
+        return async () => {
+            try{
+                let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {commentId, type:"deleteComment"}, {
+                    headers : {
+                        Authorization: 'Bearer '+token
+                    }
+                })
+                if(response.data.success){
+                    return response.data
+                }
+            }catch (error){
+                console.log(error)
+            }
         }
     }
 }

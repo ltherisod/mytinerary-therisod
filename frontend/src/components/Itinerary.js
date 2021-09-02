@@ -8,7 +8,7 @@ import toasty from "./Toast"
 
 
 const Itinerary = (props) => {
-const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time, _id} = props.data
+const {authorName, authorPhoto, src, hashtags, title, price, likes, description, time, _id, comments} = props.data
 const [likeIcon, setLikeIcon] = useState(true)
 const [itinerariesLikes, setItinerariesLikes] = useState(likes)
 const [showActivities, setShowActivities]= useState([])
@@ -28,26 +28,20 @@ const likeItinerary = async ()=>{
 async function activityItinerary (){
     try{
         let response = await props.getActivitiesPerItinerary(_id)
-        console.log(response)
         setShowActivities(response)
-        console.log("fetcheo")
 
     }catch (error){
         console.log(error)
     }
 }
 
-console.log(showActivities)
 const buttonHandler = () => {
         setButton(!button)
-        console.log(showActivities.length)
         if(!button  && !showActivities.length){
             activityItinerary()
         }
     
 }
-
-
 
     return(
         <div className="itineraryBody">
@@ -88,7 +82,7 @@ const buttonHandler = () => {
                     </div>
                     <div className="activitiesSection">
                         <Activity activities={showActivities}/>
-                        <Comments/>
+                        <Comments itineraryId={_id} itineraryComments={comments}/>
                     </div>
                         
                        
