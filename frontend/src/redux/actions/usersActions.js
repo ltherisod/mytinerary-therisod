@@ -42,7 +42,7 @@ const usersActions ={
                 Authorization: 'Bearer '+ token,
             }
         })
-            dispatch({type:"LOG_USER", payload:{token, firstName:response.data.firstName, profilePhoto: response.data.profilePhoto}})
+            dispatch({type:"LOG_USER", payload:{token, firstName:response.data.firstName, profilePhoto: response.data.profilePhoto, _id:response.data._id}})
             }catch(error) {
                return  dispatch({type:'LOG_OUT_USER' })
             }

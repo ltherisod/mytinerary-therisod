@@ -52,7 +52,7 @@ const itinerariesActions = {
                     }
         }
     },
-    editAComment:(id, token, comment ) => {
+    editAComment:(id, comment, token ) => {
         return async () => {
             try{
                 let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {comment, type:"editComment"},{
@@ -60,7 +60,8 @@ const itinerariesActions = {
                         Authorization: 'Bearer '+token
                     }
                 })
-                return response.data.response
+                console.log(response)
+                if(response.data.success) return {success:true, res:response.data.response}
             }catch (error){
                 console.log(error)
             }

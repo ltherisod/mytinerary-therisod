@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { connect } from "react-redux"
 import Activity from "./Activity"
+import {FaHeart, FaRegHeart} from 'react-icons/fa'
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import Comments from "./Comments"
 import toasty from "./Toast"

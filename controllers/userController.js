@@ -6,7 +6,7 @@ const userController = {
     addNewUser : (req, res) => {
         const {firstName, lastName, email, password, profilePhoto, country, google} = req.body
         let cryptPass = bcryptjs.hashSync(password)
-        const newUser = new User ({firstName, lastName, email, password:cryptPass, profilePhoto, country, google })
+        const newUser = new User ({firstName, lastName, email, password:cryptPass, profilePhoto, country, google})
         User.findOne({email:email})
         .then((user)=>{
             if(user){
@@ -15,7 +15,7 @@ const userController = {
                 newUser.save()
                 .then((newUser) =>{
                     const token = jwt.sign({...newUser}, process.env.SECRETKEY)
-                    res.json({success:true, response:{firstName:newUser.firstName, profilePhoto:newUser.profilePhoto, token}, error:null})
+                    res.json({success:true, response:{firstName:newUser.firstName, profilePhoto:newUser.profilePhoto, token, _id:newUser._id}, error:null})
                 }) 
                 .catch((error) => res.json({success:false, response:error}))
             }
@@ -31,7 +31,7 @@ const userController = {
             let correctPass = bcryptjs.compareSync(password, user.password)
             if(!correctPass) throw new Error('Email/password incorrect')
             const token = jwt.sign({...user}, process.env.SECRETKEY)
-            res.json({ success:true, response:{token, firstName:user.firstName, profilePhoto:user.profilePhoto}})
+            res.json({ success:true, response:{token, firstName:user.firstName, profilePhoto:user.profilePhoto,  _id:user._id}})
          })
         .catch ((error) => res.json({success:false, error:error.message}))
     },
@@ -47,7 +47,7 @@ const userController = {
         .catch((error) => res.json({success:false, response:error.message}))
     },
     verifyToken : (req, res) => {
-        res.json({firstName: req.user.firstName, profilePhoto:req.user.profilePhoto})
+        res.json({firstName: req.user.firstName, profilePhoto:req.user.profilePhoto, _id:req.user._id})
     }
 }
 

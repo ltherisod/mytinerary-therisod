@@ -30,7 +30,7 @@ getItineraryId: (req, res) => {
      .catch((error) => res.json({success:false, response:error.message}))
  },
  getItinerariesPerCity : (req, res)=> {
-     Itinerary.find({cityId: req.params.id })
+     Itinerary.find({cityId: req.params.id }).populate("comments.userId")
      .then((itineraries) => res.json ({success:true, response:itineraries}))
      .catch ((error) => res.json ({success:false, response:error}))
  },
@@ -53,7 +53,7 @@ getItineraryId: (req, res) => {
      switch(req.body.type){
          case "addComment":
              try{
-                 const newComment = await Itinerary.findOneAndUpdate({_id:req.params.id}, {$push:{comments :{comment:req.body.comment, userId: req.user._id}}}, {new:true}).populate("comments.userId")
+                 let newComment = await Itinerary.findOneAndUpdate({_id:req.params.id}, {$push:{comments :{comment:req.body.comment, userId: req.user._id}}}, {new:true}).populate("comments.userId")
                  if(newComment){
                     res.json({success:true , response:newComment.comments})
                  }else{
@@ -66,19 +66,19 @@ getItineraryId: (req, res) => {
             break
         case "editComment" : 
             try{
-                const updateComment = await Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$set:{"comments.$.comment": req.body.comment}},{new:true})
-                if(updateComment){
+               let updatedComment = await Itinerary.findOneAndUpdate({"comments._id":req.params.id}, {$set:{"comments.$.comment": req.body.comment}},{new:true})
+                if(updatedComment){
                     res.json({success:true, response:updatedComment.comments})
                 }else{
                     throw new Error()
                 }
             }catch (error){
-                res.json({success:false, response:error })
+                res.json({success:false, response:error.message })
             }
             break
         case "deleteComment":
             try{
-                const commentDeleted = await  Itinerary.findOneAndUpdate({"comments._id":req.body.commentId}, {$pull:{comments:{_id:req.body.commentId}}})
+                let commentDeleted = await  Itinerary.findOneAndUpdate({"comments._id":req.body.commentId}, {$pull:{comments:{_id:req.body.commentId}}})
                 if(commentDeleted){
                     res.json({success:true})
                 }else {

@@ -5,17 +5,22 @@ import itinerariesActions from "../redux/actions/itinerariesActions"
 import {useRef, useState} from "react"
 
 const Comments = (props) => {
-    
-const [allComments, setAllComments] = useState(props.itineraryComments)
 
+    const [renderComments, setRenderComments]= useState(false)
+    const [allComments, setAllComments] = useState(props.itineraryComments)
+   
    const inputHandler = useRef() 
 
     const sendComment =  () => {
         let commentValue = inputHandler.current.value
         props.addCommentPerItinerary(props.itineraryId, commentValue, props.token)
-        .then((res)=> setAllComments(res))
+        .then((res)=> {
+            setAllComments(res)
+            inputHandler.current.value=""
+        })
         .catch((error) => console.log(error))
      }
+
     const eraseComment=(itineraryId, token,commentId)=>{
         props.deleteAComment(itineraryId, token, commentId)
         .then((res) =>{
@@ -28,6 +33,26 @@ const [allComments, setAllComments] = useState(props.itineraryComments)
         .catch((error) => console.log(error))
      }
 
+     const editComment = (commentId, comment, token) => {
+         props.editAComment(commentId, comment, token)
+         .then((res) => {
+             if(res.success){
+                allComments.forEach((editComment) =>{
+                    if(editComment._id === commentId){
+                        editComment.comment = comment
+                    }
+                })
+                setAllComments(allComments)
+                setRenderComments(!renderComments)
+             }
+             
+         })
+         .catch((error) => console.log(error))
+     }
+
+    
+
+
 return(
     <div className="commentsConstruction">
             <div className="commentsTittle">
@@ -39,12 +64,12 @@ return(
                 </div> */}
                 
                 <div className="comments">
-                    {allComments.map((comment) => <Comment key={comment._id} newComment={comment} deleteComment={eraseComment} itinerary_id={props.itineraryId}/>)}
+                    {allComments.map((comment) => <Comment key={comment._id} newComment={comment} deleteComment={eraseComment} itinerary_id={props.itineraryId} editNewComment={editComment} render={renderComments}/>)}
                     
                 </div>
             <div className="containerInputComment">
                 <input ref={inputHandler} className="inputComment" type="text"/>
-                <IoSend onClick={sendComment} className="sendIcon" />
+                <IoSend onClick={sendComment} className="sendIcon"/>
             </div>
     </div>
 )
@@ -53,6 +78,7 @@ return(
 const mapStateToProps = (state) => {
     return{
         token:state.users.token
+
     }
 
 }

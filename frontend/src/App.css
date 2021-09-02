@@ -27,7 +27,7 @@ div.account {
    width: 2.5rem;
 }
 
-.userProfilePhoto {
+.userProfilePhoto, .userIcon {
     margin-top: 1vh;
     background-position: 50%;
     width: 4em;
@@ -557,6 +557,7 @@ div.phraseNav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:#999696;
 }
 
 .itineraryBody{
@@ -839,8 +840,20 @@ form span, .signInForm span {
     flex-direction: column;
     height: 60vh;
     margin-bottom: 2vh;
+    overflow-y: auto;
+    margin-left: 1vw;
+    z-index: -1;
 }
 
+.comments::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.comments::-webkit-scrollbar-thumb {
+    background-color: #999696;
+    border-radius: 10px;
+    border: 1px solid #999696;
+}
 
 .commentsTittle h4{
 font-size: 2em;
@@ -890,8 +903,66 @@ div.carrouselActivities a span {
     width: 40vw;
     min-height: 60vh !important;
 }
+
 .Carousel-inner {
     border-radius: 10px!important;
+}
+
+.containerInputComment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 70%;
+    border: 2px solid #e6e3e3;
+    background-color: #e6e3e3;
+    margin: 0 auto;
+}
+
+.inputComment, input{
+    padding: 1vh 2vw;
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    outline: none;
+}
+
+.sendIcon {
+    color:#999696;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.comment{
+    background-color: #e9e9eb;
+    border-radius: 20px;
+    margin-left: 3vw;
+}
+.commentContainer{
+    display: flex;
+    margin-bottom: 3vh;
+}
+.comment p {
+    color: #000;
+    text-align: start;
+    margin: 0 0 0 1vw;
+    padding: 1vh 3vw 1vh 0;
+    flex-wrap: wrap;
+}
+
+.commentData {
+    flex-direction: column;
+}
+
+.userComment{
+    display: flex;
+    align-items: center;
+}
+
+.userName p{
+    margin:0.1;
+    font-weight:450;
+    color:#615f5f;
 }
 
 @media (max-width:1230px){
