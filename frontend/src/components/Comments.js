@@ -3,7 +3,7 @@ import Comment from "./Comment"
 import { connect } from "react-redux"
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import {useRef, useState} from "react"
-
+import toasty from "./Toast"
 const Comments = (props) => {
 
     const [renderComments, setRenderComments]= useState(false)
@@ -15,11 +15,22 @@ const Comments = (props) => {
         let commentValue = inputHandler.current.value
         props.addCommentPerItinerary(props.itineraryId, commentValue, props.token)
         .then((res)=> {
-            setAllComments(res)
-            inputHandler.current.value=""
+            if(props.token){
+                setAllComments(res)
+                inputHandler.current.value=""
+            }else{
+                toasty ('error', 'You must be logged in to comment this post')
+            }
+           
         })
         .catch((error) => console.log(error))
      }
+
+    const handlerEnter = (e) => {
+        if (e.key === 'Enter') {
+            sendComment()
+        }
+    }
 
     const eraseComment=(itineraryId, token,commentId)=>{
         props.deleteAComment(itineraryId, token, commentId)
@@ -58,17 +69,12 @@ return(
             <div className="commentsTittle">
                 <h4>Comments</h4>
             </div>
-                 {/* <div className="noComments">
-                    <p>No comments yet</p>
-                    <p>Be the first to post one!</p>
-                </div> */}
-                
                 <div className="comments">
                     {allComments.map((comment) => <Comment key={comment._id} newComment={comment} deleteComment={eraseComment} itinerary_id={props.itineraryId} editNewComment={editComment} render={renderComments}/>)}
                     
                 </div>
             <div className="containerInputComment">
-                <input ref={inputHandler} className="inputComment" type="text"/>
+                <input ref={inputHandler} className="inputComment" type="text" onKeyPress={handlerEnter} placeholder={!props.token && "You must be logged in to comment"}/>
                 <IoSend onClick={sendComment} className="sendIcon"/>
             </div>
     </div>

@@ -23,6 +23,7 @@ div.account {
 .userdiv{
     margin-right:5rem;
 }
+
 .user{
    width: 2.5rem;
 }
@@ -203,7 +204,7 @@ div.heroButtons button:hover {
     border-radius: 100px;
 }
 
-.carouselTitles, .titles, .titlesTips, .underConstructionBox, .signUpTittle, .signInTittle{
+.carouselTitles, .titles, .titlesTips, .underConstructionBox, .signUpTittle, .signInTittle, .activitiesHeader{
     padding: 1rem;
     font-family:'Ubuntu', sans-serif;
 }
@@ -631,24 +632,28 @@ div.phraseNav {
 .likes{
     width: 10vw;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.likes img {
-    width: 2.5em;
-    cursor: pointer;
-}
+
 
 .likes p{
-    color:#ff6666;
-    font-weight: bold;
+    font-weight: bolder;
+    margin: 0 0 0 .5vw!important;
+    font-size: 1.4em;
 }
+
 .itineraryDescrip{
     font-size: 1.3em;
 }
 
+.heartIconRed{
+    color:red;
+    font-size: 1.8em;
+    cursor: pointer; 
+
+}
 .hashtags{
     width: 45%;
     display: flex;
@@ -750,12 +755,7 @@ div.phraseNav {
     border-radius: 20px;
     box-shadow: 0px 0px 19px 6px rgba(146, 146, 146, 0.39);
 }
-/* .commentsConstruction{
-    padding: 2rem;
-}
-.commentsConstruction img{
-    width:70vw;
-} */
+
 
 .signUpBack, .signInBack {
     background-repeat: no-repeat;
@@ -833,16 +833,17 @@ form span, .signInForm span {
     width: 50%;
     border-radius: 20px;
     box-shadow: 0px 0px 6px 3px rgba(175, 174, 174, 0.253);
+    min-height: 60vh;
 }
 
 .comments{
     display: flex;
     flex-direction: column;
-    height: 60vh;
     margin-bottom: 2vh;
     overflow-y: auto;
     margin-left: 1vw;
     z-index: -1;
+    min-height: 50vh;
 }
 
 .comments::-webkit-scrollbar {
@@ -919,12 +920,16 @@ div.carrouselActivities a span {
     margin: 0 auto;
 }
 
-.inputComment, input{
+.inputComment, .inputEdit{
     padding: 1vh 2vw;
     background-color: transparent;
     border: none;
     width: 90%;
     outline: none;
+}
+
+.iconEdit{
+    align-self: center;
 }
 
 .sendIcon {
@@ -934,13 +939,20 @@ div.carrouselActivities a span {
 }
 
 .comment{
+    display:flex;
     background-color: #e9e9eb;
     border-radius: 20px;
-    margin-left: 3vw;
+    padding-right: .4em;
+    /* margin-left: 3vw; */
+}
+
+.send{
+    margin-right: .3em;
 }
 .commentContainer{
     display: flex;
-    margin-bottom: 3vh;
+    margin-left: 0.5em;
+    /* margin-bottom: 3vh; */
 }
 .comment p {
     color: #000;
@@ -951,18 +963,39 @@ div.carrouselActivities a span {
 }
 
 .commentData {
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-bottom: .8em;
 }
 
 .userComment{
     display: flex;
     align-items: center;
+    justify-content: center;
+    background-color: aquamarine;
+}
+
+.activitiesHeader h2 {
+   font-weight: bolder;
+}
+.heartIcon {
+    font-size: 1.8em;
+    cursor: pointer;
 }
 
 .userName p{
     margin:0.1;
     font-weight:450;
     color:#615f5f;
+}
+.cajacolor{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-right: .5em;
+}
+.inputEdit{
+    flex-grow: 1;
 }
 
 @media (max-width:1230px){
@@ -1045,7 +1078,19 @@ div.carrouselActivities a span {
     .formContainer, .formContainerSignIn{
         width:60vw;
     }
+    .activitiesSection{
+        flex-direction: column;
+    }
+    .photoAContainer{
+        width: 100%;
+    }
+
+    .commentsConstruction, .carrouselActivities, .activityPhoto {
+        width: 100%;
+    }
+   
 }
+
 
 @media  (max-width: 630px){
     .formContainer, .formContainerSignIn{

@@ -15,6 +15,8 @@ const [itinerariesLikes, setItinerariesLikes] = useState(likes)
 const [showActivities, setShowActivities]= useState([])
 const [button, setButton] = useState(false)
 
+const liked= itinerariesLikes.includes(props._id) ? <FaHeart className="heartIconRed"/> : <FaRegHeart className="heartIcon"/>
+
 
 const likeItinerary = async ()=>{
     setLikeIcon(false)
@@ -26,6 +28,7 @@ const likeItinerary = async ()=>{
     }
     setLikeIcon(true)
 }
+
 async function activityItinerary (){
     try{
         let response = await props.getActivitiesPerItinerary(_id)
@@ -59,7 +62,7 @@ const buttonHandler = () => {
                     <div className="itineraryTitle">
                             <h2>{title}</h2>
                         <div onClick={(likeIcon ? likeItinerary : null )} className="likes">
-                           <img src="/assets/instagram-like-3507.svg" alt="likeinsta"/>
+                            {liked}
                            <p>{itinerariesLikes.length}</p>
                         </div>
                     </div>
@@ -100,7 +103,8 @@ const buttonHandler = () => {
 
 const mapStateToProps = (state) => {
     return{
-        token:state.users.token
+        token:state.users.token,
+        _id: state.users._id
     }
 }
 const mapDispatchToProps ={

@@ -21,6 +21,7 @@ const City = (props) =>{
                 await   props.getOneCity(props.match.params.id)
                 setLoader(false)
             }catch (error){
+                console.log("city")
                 props.history.push('/fail')
                 return false
             }
