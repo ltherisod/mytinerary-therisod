@@ -91,7 +91,7 @@ const SignUp = (props) => {
         <div>
             <NavBar/>
             {/* style ={{backgroundImage:"url('/assets/signIn.png')" }} */}
-            <div className="signUpBack" style={{backgroundImage:"url('https://i.postimg.cc/SKXJP4nh/log-Inmedia2.png')"}}>
+            <div className="signUpBack" style={{backgroundImage:"url('/assets/signInmedia2.png')"}}>
                 <div className="signUpTittle">
                     <h2>Hello Adventurer!</h2>
                     <h4>Create your account by filling the form below.</h4>

@@ -56,7 +56,7 @@ const SignIn = (props) => {
     return(
         <div>
             <NavBar/>
-            <div className="signInBack"style ={{backgroundImage:"url('/assets/LogInmedia2.png')" }}>
+            <div className="signInBack"style ={{backgroundImage:"url('https://i.postimg.cc/SKXJP4nh/log-Inmedia2.png')" }}>
                 <div className="signInTittle">
                     <h2>Welcome back!</h2>
                     <h4>Log in adventurer</h4>
