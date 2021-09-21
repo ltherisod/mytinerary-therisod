@@ -998,6 +998,8 @@ div.carrouselActivities a span {
     flex-grow: 1;
 }
 
+
+
 @media (max-width:1230px){
     .citydescription {
       position: initial;

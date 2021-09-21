@@ -1,13 +1,11 @@
 import {useState, useRef, useEffect } from "react"
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
-import { TiDelete } from 'react-icons/ti'
 import { IoSend } from 'react-icons/io5'
 import {connect} from "react-redux"
 import Swal from 'sweetalert2'
 
 const Comment =(props)=>{
     const inputHandler = useRef() 
-    // const [allowUser, setAllowUser] = useState(false)
     const [shown, setShown] = useState (false)
     const allowComment = props.newComment.userId._id === props._id
 
@@ -48,7 +46,7 @@ const Comment =(props)=>{
                             </div>}
                             <FaPencilAlt className="iconEdit" onClick={()=>setShown(!shown)}/>
                         </div>
-                        
+
     const commentToRender = allowComment ? commentShown : <p>{props.newComment.comment}</p>
     
 

@@ -4,12 +4,14 @@ import { connect } from "react-redux"
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import {useRef, useState} from "react"
 import toasty from "./Toast"
-const Comments = (props) => {
 
+
+const Comments = (props) => {
     const [renderComments, setRenderComments]= useState(false)
     const [allComments, setAllComments] = useState(props.itineraryComments)
-   
-   const inputHandler = useRef() 
+    
+    
+    const inputHandler = useRef() 
 
     const sendComment =  () => {
         let commentValue = inputHandler.current.value
@@ -38,7 +40,7 @@ const Comments = (props) => {
             if(res.success){
                 setAllComments(allComments.filter(comment => comment._id !== commentId))
             }else{
-                throw new Error ()
+                throw new Error()
             }
         })
         .catch((error) => console.log(error))
