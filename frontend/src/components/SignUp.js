@@ -116,7 +116,7 @@ const SignUp = (props) => {
                     <div className="formButtons">
                         <button onClick={sendFormHandler}>Create account</button>
                         <GoogleLogin
-                                    clientId="356842041133-55s2b7ber4m42gn59mniralrv1ens5v1.apps.googleusercontent.com"
+                                    clientId="356842041133-nipvtkdatgb3btr79f3huvh8d3tq8fbh.apps.googleusercontent.com"
                                     render={renderProps => (
                                     <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</button>
                                     )}
