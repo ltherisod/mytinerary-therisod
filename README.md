@@ -12,7 +12,7 @@ Mytinerary es una web app en donde viajeros publican sus itinerarios y los usuar
 
 Dejo el siguiente link con una breve explicación mia en youtube : [MyTineraryYoutube](https://youtu.be/Qu4meNVF-XM)
 
-### Demo
+### Demo 💻
 
 Se puede navegar en la web hosteada en el siguiente link: [MyTinerary](https://mytinerarytherisod.herokuapp.com/)
 
