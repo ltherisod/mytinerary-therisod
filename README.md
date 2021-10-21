@@ -39,6 +39,7 @@ Este proyecto fue realizado por las siguientes tecnologías
 
 ---
 ## Expresiones de Gratitud 💗
+
 Se agradece a Fernando Biaus por la mentoría y  dedicación. <br/>
 También a Mindhub por la oportunidad de crecer como developers.
 ---
