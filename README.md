@@ -1,11 +1,16 @@
-# MyTinerary Web App
+# MyTinerary Web App ✈️
 
-Mytinerary es una web app en donde viajeros publican sus itinerarios y los usuarios loggedos pueden likear y comentar los mismos. Dichos comentarios se pueden editar y borrar por su respectivo dueño.
+Mytinerary es una web app en donde viajeros publican sus itinerarios y los usuarios loggedos pueden likear y comentar los mismos. Dichos comentarios se pueden editar y borrar por su respectivo dueño. La temática del proyecto es turismo aventura, por lo que toda la estética de la pagína es de montaña.
 
 
-![image](frontend/public/assets/mytinerary.gif)
+
+ ![image](frontend/public/assets/mytinerary.gif)
+
+
 
 ## Empezamos! 🚀
+
+Dejo el siguiente link con una breve explicación mia en youtube : [MyTineraryYoutube](https://youtu.be/Qu4meNVF-XM)
 
 ### Demo
 
