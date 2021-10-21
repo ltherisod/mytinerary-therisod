@@ -12,7 +12,8 @@ import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom"
 import usersActions from "./redux/actions/usersActions"
 import { connect } from "react-redux"
 import {useEffect} from "react"
-
+import { LogBox } from "react-native"
+LogBox.ignoreAllLogs(true)
 const App = (props) => {
     useEffect(()=>{
         if(localStorage.getItem('token')){
