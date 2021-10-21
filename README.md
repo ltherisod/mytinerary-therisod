@@ -44,6 +44,6 @@ Se agradece a Fernando Biaus por la mentoría y  dedicación. <br/>
 También a Mindhub por la oportunidad de crecer como developers.
 
 
- Desarrollado por  [Laura Therisod](https://github.com/ltherisod/) 😊
+ ### Desarrollado por  [Laura Therisod](https://github.com/ltherisod/) 😊
 
 
