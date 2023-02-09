@@ -14,7 +14,7 @@ Dejo el siguiente link con una breve explicación mia en youtube : [MyTineraryYo
 
 ### Demo 💻
 
-Se puede navegar en la web hosteada en el siguiente link: [MyTinerary](https://mytinerarytherisod.herokuapp.com/)
+Se puede navegar en la web hosteada en el siguiente link: [MyTinerary](https://mytinerary-therisod-production.up.railway.app/)
 
 ### Instalación 🔧
 
