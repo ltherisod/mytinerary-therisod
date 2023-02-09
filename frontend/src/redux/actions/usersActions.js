@@ -4,7 +4,7 @@ const usersActions ={
     signUpUser :(newUser) => {
         return async (dispatch, getState) => {
             try{
-                let response = await  axios.post('https://mytinerarytherisod.herokuapp.com/api/user/signup', newUser)
+                let response = await  axios.post('https://mytinerary-therisod-production.up.railway.app/api/user/signup', newUser)
             if(response.data.success){
                 dispatch({type:"LOG_USER", payload: response.data.response})
             }
@@ -17,7 +17,7 @@ const usersActions ={
     signInUser: (logInUser) => {
         return async (dispatch, getState) => {
            try{
-            let response = await  axios.post('https://mytinerarytherisod.herokuapp.com/api/user/signin', logInUser)
+            let response = await  axios.post('https://mytinerary-therisod-production.up.railway.app/api/user/signin', logInUser)
             if(response.data.success){
                
                 dispatch({type:"LOG_USER", payload: response.data.response})
@@ -37,7 +37,7 @@ const usersActions ={
     signInLS :  (token) =>{
         return async (dispatch, getState) => {
             try{
-                let response = await axios.get('https://mytinerarytherisod.herokuapp.com/api/verifyToken', {
+                let response = await axios.get('https://mytinerary-therisod-production.up.railway.app/api/verifyToken', {
             headers: {
                 Authorization: 'Bearer '+ token,
             }

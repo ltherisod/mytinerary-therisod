@@ -2,7 +2,7 @@ import axios from "axios"
 const itinerariesActions = {
     getItinerariesPerCity : (id) => {
         return async (dispatch, getState) => {
-            let res = await axios.get(`https://mytinerarytherisod.herokuapp.com/api/itineraries/${id}`)
+            let res = await axios.get(`https://mytinerary-therisod-production.up.railway.app/api/itineraries/${id}`)
             if(!res.data.success){
                 throw new Error ('Backend-Data Base problems')
             }
@@ -12,7 +12,7 @@ const itinerariesActions = {
     likeItinerary: (id, token) =>{
         return async () => {
                 try{
-                    let response = await axios.put(`https://mytinerarytherisod.herokuapp.com/api/itinerary/like/${id}`, {},{
+                    let response = await axios.put(`https://mytinerary-therisod-production.up.railway.app/api/itinerary/like/${id}`, {},{
                     headers:{
                         Authorization: 'Bearer '+token
                     }
@@ -28,7 +28,7 @@ const itinerariesActions = {
     getActivitiesPerItinerary : (id)=>{
         return async () => {
             try{
-                let response = await axios.get(`https://mytinerarytherisod.herokuapp.com/api/activities/${id}`)
+                let response = await axios.get(`https://mytinerary-therisod-production.up.railway.app/api/activities/${id}`)
                 if(response.data.success){
                     return response.data.response[0].activities
                 }
@@ -41,7 +41,7 @@ const itinerariesActions = {
     addCommentPerItinerary:(id, comment, token)=>{
         return async () => {
                     try{
-                        let response = await axios.put(`https://mytinerarytherisod.herokuapp.com/api/itinerary/comments/${id}`, {comment, type:"addComment"} ,{
+                        let response = await axios.put(`https://mytinerary-therisod-production.up.railway.app/api/itinerary/comments/${id}`, {comment, type:"addComment"} ,{
                             headers : {
                                 Authorization: 'Bearer '+token
                             }
@@ -55,7 +55,7 @@ const itinerariesActions = {
     editAComment:(id, comment, token ) => {
         return async () => {
             try{
-                let response = await axios.put(`https://mytinerarytherisod.herokuapp.com/api/itinerary/comments/${id}`, {comment, type:"editComment"},{
+                let response = await axios.put(`https://mytinerary-therisod-production.up.railway.app/api/itinerary/comments/${id}`, {comment, type:"editComment"},{
                     headers : {
                         Authorization: 'Bearer '+token
                     }
@@ -71,7 +71,7 @@ const itinerariesActions = {
       
         return async () => {
             try{
-                let response = await axios.put(`https://mytinerarytherisod.herokuapp.com/api/itinerary/comments/${id}`, {commentId, type:"deleteComment"}, {
+                let response = await axios.put(`https://mytinerary-therisod-production.up.railway.app/api/itinerary/comments/${id}`, {commentId, type:"deleteComment"}, {
                     headers : {
                         Authorization: 'Bearer '+token
                     }

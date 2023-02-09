@@ -3,7 +3,7 @@ const citiesActions = {
     
  getCities : () => {
     return async (dispatch, getState) => {
-        let response = await axios.get('https://mytinerarytherisod.herokuapp.com/api/citiesData')
+        let response = await axios.get('https://mytinerary-therisod-production.up.railway.app/api/citiesData')
 
         if(!response.data.success){
             throw new Error ('Backend-Data Base problems')

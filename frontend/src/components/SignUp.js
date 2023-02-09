@@ -18,7 +18,7 @@ const SignUp = (props) => {
 
     useEffect(() => {
         window.scroll(0,0)
-        axios.get('https://restcountries.eu/rest/v2/all')
+        axios.get('https://restcountries.com/v3.1/all')
             .then(response => setCountries(response.data))
             .catch(error => console.log(error))
      // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -109,7 +109,7 @@ const SignUp = (props) => {
                         <span><input type="url" name="profilePhoto" placeholder="Url profile picture" value={newUser.profilePhoto} onChange={userHandler} autoComplete="nope"/></span>
                         <span><select type="text" name="country" placeholder="Choose your country" value={newUser.country} onChange={userHandler}>
                         <option>Choose your country</option>
-                        {countries.map(country => <option key={country.name} value={country.name}>{country.name}</option>)}
+                        {countries.map(country => <option key={country.name?.common} value={country.name?.common}>{country.name?.common}</option>)}
                         </select>
                         </span>
                     </form>
